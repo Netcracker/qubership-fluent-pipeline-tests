@@ -12,7 +12,7 @@ updates:
   groups:
     k8s.io:
       patterns:
-        - "k8s.io/*"
+      - "k8s.io/*"
   open-pull-requests-limit: 20
 # Docker bot configurations
 - package-ecosystem: "docker"
