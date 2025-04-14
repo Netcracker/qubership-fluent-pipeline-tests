@@ -2,10 +2,9 @@
 #### Config file for yamllint
 # Rules: https://yamllint.readthedocs.io/en/stable/rules.html
 
-# Exclude not required files
-# ignore-from-file:
-# - .gitignore
-# - .yamlignore
+ignore:
+  - .github/auto-labeler-config.yaml
+  - .github/workflows/*
 
 rules:
   braces:
