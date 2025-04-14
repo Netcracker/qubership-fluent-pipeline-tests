@@ -3,8 +3,8 @@
 # Rules: https://yamllint.readthedocs.io/en/stable/rules.html
 
 ignore:
-  - .github/auto-labeler-config.yaml
-  - .github/workflows/*
+- .github/auto-labeler-config.yaml
+- .github/workflows/*
 
 rules:
   braces:
