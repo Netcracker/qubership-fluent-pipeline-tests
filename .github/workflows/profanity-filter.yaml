@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.repo.id != github.event.pull_request.head.repo.id }}
     steps:
-      - name: "Warning"
-        run: |
-          echo "⚠️ Pull request from fork! ⚠️" >> $GITHUB_STEP_SUMMARY
-          echo "The action cannot be run over PRs from fork." >> $GITHUB_STEP_SUMMARY
+    - name: "Warning"
+      run: |
+        echo "⚠️ Pull request from fork! ⚠️" >> $GITHUB_STEP_SUMMARY
+        echo "The action cannot be run over PRs from fork." >> $GITHUB_STEP_SUMMARY
