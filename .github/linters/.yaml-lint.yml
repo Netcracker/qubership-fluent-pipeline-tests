@@ -2,9 +2,10 @@
 #### Config file for yamllint
 # Rules: https://yamllint.readthedocs.io/en/stable/rules.html
 
-ignore:
-- .github/auto-labeler-config.yaml
-- .github/workflows/*
+# Exclude not required files
+# ignore-from-file:
+# - .gitignore
+# - .yamlignore
 
 rules:
   braces:
@@ -45,8 +46,9 @@ rules:
   hyphens:
     max-spaces-after: 1
   indentation:
+    level: warning
     spaces: 2
-    indent-sequences: consistent
+    indent-sequences: true
     check-multi-line-strings: false
   key-duplicates: enable
   key-ordering: disable
