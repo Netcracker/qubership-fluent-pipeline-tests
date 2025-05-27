@@ -1,5 +1,8 @@
 # Build the manager binary
-FROM golang:1.24.2-alpine3.21 as builder
+FROM --platform=$BUILDPLATFORM golang:1.24.2-alpine3.21 as builder
+ARG BUILDPLATFORM
+ARG TARGETOS
+ARG TARGETARCH
 
 WORKDIR /workspace
 
@@ -17,7 +20,7 @@ COPY agent/ agent/
 COPY stage/ stage/
 
 # Build
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on go build -a -o fluent-test main.go
+RUN CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} GO111MODULE=on go build -a -o fluent-test main.go
 
 # Use alpine tiny images as a base
 FROM alpine:3.21.3
