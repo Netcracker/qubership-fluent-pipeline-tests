@@ -19,3 +19,4 @@ jobs:
           args: --base . --verbose --no-progress './**/*.md' --accept 100..=103,200..=299,429
           format: markdown
           fail: true
+          failIfEmpty: false
