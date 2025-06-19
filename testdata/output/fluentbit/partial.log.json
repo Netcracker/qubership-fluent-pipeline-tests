@@ -1,0 +1,35 @@
+[
+  {
+    "time": "2023-12-20T12:51:32.272007468Z",
+    "log": "[2023-12-20T12:51:32.270] [WARN] [logId=partial] The first part of the log of size 16Kb...The second part of the log of size 16Kb...The last part of the log of size 16Kb or less",
+    "hostname": "fake-fluent",
+    "nodename": "fake-node",
+    "level": "warning",
+    "namespace": "fake-namespace",
+    "container": "fake-container",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "labels": {
+      "metadata.app": "fluent-pipeline-test",
+      "metadata.app.kubernetes.io/version": "0.1.0"
+    },
+    "logId": "partial"
+  },
+  {
+    "logId": "partial-2",
+    "time": "2024-04-20T12:51:32.272007468Z",
+    "log": "[2024-04-20T12:51:32.270] [ERROR] [logId=partial-2] [fake-key1=fake-value1] [fake-key2=fake-value2] [partial-message=true] This log record keys-values are separated by containerd. But should be concatenated and contain key `partial-message` with value `true`",
+    "partial-message": "true",
+    "fake-key1": "fake-value1",
+    "fake-key2": "fake-value2",
+    "level": "err",
+    "hostname": "fake-fluent",
+    "namespace": "fake-namespace",
+    "container": "fake-container",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "nodename": "fake-node",
+    "labels": {
+      "metadata.app.kubernetes.io/version": "0.1.0",
+      "metadata.app": "fluent-pipeline-test"
+    }
+  }
+]

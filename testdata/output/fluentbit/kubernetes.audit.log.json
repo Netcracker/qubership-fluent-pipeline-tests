@@ -1,0 +1,111 @@
+[
+  {
+    "tag": "/var/log/kubernetes/audit/audit.log",
+    "nc_audit_label": "true",
+    "nodename": "fake-node",
+    "hostname": "fake-fluent",
+    "logId": "kubernetes-audit-1",
+    "log": "(message)",
+    "level": "info",
+    "level_unknown": "true",
+    "kind": "Event",
+    "apiVersion": "audit.k8s.io/v1",
+    "level_audit": "Metadata",
+    "auditID": "4bce31be-8baa-4482-8d47-fec25fff8ea5",
+    "stage": "ResponseComplete",
+    "requestURI": "/api/v1/namespaces/postgres-ek/configmaps/patroni-leader",
+    "verb": "patch",
+    "user": {
+      "username": "system:serviceaccount:postgres-ek:patroni-sa",
+      "uid": "f9c156f7-83b4-49f3-8c82-47fafd448777",
+      "groups": [
+        "system:serviceaccounts",
+        "system:serviceaccounts:postgres-ek",
+        "system:authenticated"
+      ],
+      "extra": {
+        "authentication.kubernetes.io/pod-name": [
+          "pg-patroni-node1-0"
+        ],
+        "authentication.kubernetes.io/pod-uid": [
+          "159dce59-7cd7-4067-aac6-cbc77f9331b2"
+        ]
+      }
+    },
+    "sourceIPs": [
+      "10.129.187.41"
+    ],
+    "userAgent": "Patroni/3.3.0 Python/3.6.8 Linux",
+    "objectRef": {
+      "resource": "configmaps",
+      "namespace": "postgres-ek",
+      "name": "patroni-leader",
+      "apiVersion": "v1"
+    },
+    "responseStatus": {
+      "metadata": {},
+      "code": 200
+    },
+    "requestReceivedTimestamp": "2024-06-19T11:30:08.013686Z",
+    "stageTimestamp": "2024-06-19T11:30:08.023702Z",
+    "annotations": {
+      "authorization.k8s.io/decision": "allow",
+      "authorization.k8s.io/reason": "RBAC: allowed by RoleBinding \"patroni-core-operator/postgres-ek\" of Role \"patroni-core-operator\" to ServiceAccount \"patroni-sa/postgres-ek\""
+    }
+  },
+  {
+    "tag": "/var/log/kubernetes/audit/audit.log",
+    "nc_audit_label": "true",
+    "nodename": "fake-node",
+    "hostname": "fake-fluent",
+    "logId": "kubernetes-audit-2",
+    "log": "(message)",
+    "level": "info",
+    "level_unknown": "true",
+    "kind": "Event",
+    "apiVersion": "audit.k8s.io/v1",
+    "level_audit": "Metadata",
+    "auditID": "18ed463e-e265-4709-82b9-b8df65184619",
+    "stage": "ResponseComplete",
+    "requestURI": "/api/v1/namespaces/cloudberry/configmaps/cloudberry-common-leader",
+    "verb": "patch",
+    "user": {
+      "username": "system:serviceaccount:cloudberry:greenplumdb-sa",
+      "uid": "9a0638fa-d0fe-433d-a95f-6bdd5e5c52a4",
+      "groups": [
+        "system:serviceaccounts",
+        "system:serviceaccounts:cloudberry",
+        "system:authenticated"
+      ],
+      "extra": {
+        "authentication.kubernetes.io/pod-name": [
+          "gpdb-master-1-0"
+        ],
+        "authentication.kubernetes.io/pod-uid": [
+          "692ecd9c-a7d0-45cb-abb9-8d6d94143dcb"
+        ]
+      }
+    },
+    "sourceIPs": [
+      "10.105.32.113"
+    ],
+    "userAgent": "Swagger-Codegen/7.0.0/python",
+    "objectRef": {
+      "resource": "configmaps",
+      "namespace": "cloudberry",
+      "name": "cloudberry-common-leader",
+      "apiVersion": "v1"
+    },
+    "responseStatus": {
+      "metadata": {},
+      "code": 200
+    },
+    "requestReceivedTimestamp": "2024-06-27T14:39:55.901475Z",
+    "stageTimestamp": "2024-06-27T14:39:55.910264Z",
+    "annotations": {
+      "authentication.k8s.io/stale-token": "subject: system:serviceaccount:cloudberry:greenplumdb-sa, seconds after warning threshold: 262936",
+      "authorization.k8s.io/decision": "allow",
+      "authorization.k8s.io/reason": "RBAC: allowed by RoleBinding \"greenplumdb-operator/cloudberry\" of Role \"greenplumdb-operator\" to ServiceAccount \"greenplumdb-sa/cloudberry\""
+    }
+  }
+]
