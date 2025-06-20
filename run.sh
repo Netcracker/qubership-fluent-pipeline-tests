@@ -1,15 +1,15 @@
 #!/bin/sh
 
 # For local tests
-#FLUENTBIT_IMAGE="fluent/fluent-bit:3.2.2"
-#FLUENTD_IMAGE="ghcr.io/netcracker/qubership-fluentd:main"
-#FLUENT_PIPELINE_REPLACER_IMAGE="ghcr.io/netcracker/qubership-fluent-pipeline-tests:main"
+FLUENTBIT_IMAGE="fluent/fluent-bit:3.2.2"
+FLUENTD_IMAGE="ghcr.io/netcracker/qubership-fluentd:main"
+FLUENT_PIPELINE_REPLACER_IMAGE="ghcr.io/netcracker/qubership-fluent-pipeline-tests:main"
 
-#INT_TESTS_IGNORE="nginx-ingress.log.json,airflow.log.json"
+INT_TESTS_IGNORE="nginx-ingress.log.json,airflow.log.json"
 #TEST_HOME_PATH="/mnt/c/Repositories/Git/logging/logging-operator"
-
-TEST_HOME_PATH="/builds/${CI_PROJECT_PATH}"
-TEST_CONTENT_PATH="test"
+TEST_HOME_PATH="/home/beauline/test_fluent"
+#TEST_HOME_PATH="/builds/${CI_PROJECT_PATH}"
+TEST_CONTENT_PATH="tests"
 
 # Use sed to copy data from test data in files that fluent should read
 add_lines() {
@@ -42,7 +42,7 @@ run_fluentd_test_logic() {
   chmod -R ugo+rw ${TEST_CONTENT_PATH}/
   chmod -R u+x fluent-pipeline-test/scripts
   chmod -R ugo+r \
-    fluent-pipeline-test/output-logs/fluentd/ \
+    fluent-pipeline-test/testdata/output/fluentd/ \
     controllers/fluentd/fluentd.configmap/
 
   # prepare fluent bit configs
@@ -52,8 +52,8 @@ run_fluentd_test_logic() {
     -v ${TEST_HOME_PATH}/controllers/fluentd/fluentd.configmap/:/config-templates.d:ro \
     -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/config/:/configuration.d:rw \
     -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/logs/:/testdata:rw \
-    -v ${TEST_HOME_PATH}/fluent-pipeline-test/assets/fluentd.yaml:/assets/fluentd.yaml:ro \
-    -v ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/:/logs:rw \
+    -v ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/assets/fluentd.yaml:/assets/fluentd.yaml:ro \
+    -v ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/input/:/logs:rw \
     ${FLUENT_PIPELINE_REPLACER_IMAGE} \
     -agent fluentd \
     -cr /assets/fluentd.yaml \
@@ -79,11 +79,11 @@ run_fluentd_test_logic() {
   sleep ${CFG_TIMEOUT}
 
   echo "=> Start print prepared test data in logs"
-  add_lines fluent-pipeline-test/testdata/logs/kubernetes/audit/audit.log ${TEST_CONTENT_PATH}/logs/var/log/kubernetes/audit/audit.log
-  add_lines fluent-pipeline-test/testdata/logs/audit/audit.log ${TEST_CONTENT_PATH}/logs/var/log/audit/audit.log
-  add_lines fluent-pipeline-test/testdata/logs/system/syslog ${TEST_CONTENT_PATH}/logs/var/log/syslog
-  add_lines fluent-pipeline-test/testdata/logs/system/messages ${TEST_CONTENT_PATH}/logs/var/log/messages
-  add_lines fluent-pipeline-test/testdata/logs/system/journal ${TEST_CONTENT_PATH}/logs/var/log/journal
+  add_lines fluent-pipeline-test/testdata/input/kubernetes/audit/audit.log ${TEST_CONTENT_PATH}/logs/var/log/kubernetes/audit/audit.log
+  add_lines fluent-pipeline-test/testdata/input/audit/audit.log ${TEST_CONTENT_PATH}/logs/var/log/audit/audit.log
+  add_lines fluent-pipeline-test/testdata/input/system/syslog ${TEST_CONTENT_PATH}/logs/var/log/syslog
+  add_lines fluent-pipeline-test/testdata/input/system/messages ${TEST_CONTENT_PATH}/logs/var/log/messages
+  add_lines fluent-pipeline-test/testdata/input/system/journal ${TEST_CONTENT_PATH}/logs/var/log/journal
 
   echo "=> Waiting until FluentD process all logs (${PARSE_TIMEOUT} seconds)"
   sleep ${PARSE_TIMEOUT}
@@ -95,7 +95,7 @@ run_fluentd_test_logic() {
   echo "=> Run the docker container to analyze FluentD parsed logs and compare with expected data"
   docker run --rm --name fluent-pipeline-test \
     -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/output/:/output-logs/actual:ro \
-    -v ${TEST_HOME_PATH}/fluent-pipeline-test/output-logs/fluentd/:/output-logs/expected:ro \
+    -v ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/output/fluentd/:/output-logs/expected:ro \
     ${FLUENT_PIPELINE_REPLACER_IMAGE} \
     -stage test \
     -agent fluentd \
@@ -122,26 +122,26 @@ run_fluentbit_test_logic() {
     ${TEST_CONTENT_PATH}/output/
 
   # Grant permissions
-  chmod -R ugo+rw ${TEST_CONTENT_PATH}/
-  chmod -R u+x fluent-pipeline-test/scripts
-  chmod -R ugo+r \
-    fluent-pipeline-test/output-logs/fluentbit/ \
-    controllers/fluentbit/fluentbit.configmap/
+  chmod -R 777 ${TEST_CONTENT_PATH}/
+  #chmod -R u+x fluent-pipeline-test/scripts
+  chmod -R 777 \
+    fluent-pipeline-test/testdata/output/fluentbit/ \
+    ${TEST_HOME_PATH}/controllers/fluentbit/fluentbit.configmap/
 
   # prepare fluent bit configs
   echo "=> Prepare FluentBit configurations"
 
-  docker run --rm --name fluent-config-replacer \
-    -v ${TEST_HOME_PATH}/controllers/fluentbit/fluentbit.configmap/:/config-templates.d:ro \
-    -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/config/:/configuration.d:rw \
-    -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/logs/:/testdata:rw \
-    -v ${TEST_HOME_PATH}/fluent-pipeline-test/assets/fluentbit.yaml:/assets/fluentbit.yaml:ro \
-    -v ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/:/logs:rw \
+  docker run --name fluent-config-replacer \
+    -v ${TEST_HOME_PATH}/controllers/fluentbit/fluentbit.configmap/:/config-templates.d/:ro \
+    -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/config/:/configuration.d/:z \
+    -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/logs/:/testdata:z \
+    -v ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/assets/fluentbit.yaml:/assets/fluentbit.yaml:ro \
+    -v ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/:/logs:z \
     ${FLUENT_PIPELINE_REPLACER_IMAGE} \
     -agent fluentbit \
     -cr /assets/fluentbit.yaml \
     -stage prepare \
-    -loglevel info \
+    -loglevel debug \
     -ignore ${INT_TESTS_IGNORE}
 
   # wait until prepare container stop
@@ -150,23 +150,23 @@ run_fluentbit_test_logic() {
 
   # run fluent bit
   echo "=> Run FluentBit to read, parse and output processed logs"
-  docker run --rm -d --name ${FLB_DOCKER_NAME} \
+  docker run -d --name ${FLB_DOCKER_NAME} \
     -e HOSTNAME=fake-fluent \
     -e NODE_NAME=fake-node \
     -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/config/:/fluent-bit/etc \
-    -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/logs/var/log/:/var/log:rw \
-    -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/output/:/fluentbit-output:rw \
+    -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/logs/var/log/:/var/log:z \
+    -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/output/:/fluentbit-output:z \
     ${FLUENTBIT_IMAGE}
 
   echo "=> Waiting for FluentBit start (${CFG_TIMEOUT} seconds)"
   sleep ${CFG_TIMEOUT}
 
   echo "=> Start print prepared test data in logs"
-  add_lines fluent-pipeline-test/testdata/logs/kubernetes/audit/audit.log ${TEST_CONTENT_PATH}/logs/var/log/kubernetes/audit/audit.log
-  add_lines fluent-pipeline-test/testdata/logs/audit/audit.log ${TEST_CONTENT_PATH}/logs/var/log/audit/audit.log
-  add_lines fluent-pipeline-test/testdata/logs/system/syslog ${TEST_CONTENT_PATH}/logs/var/log/syslog
-  add_lines fluent-pipeline-test/testdata/logs/system/messages ${TEST_CONTENT_PATH}/logs/var/log/messages
-  add_lines fluent-pipeline-test/testdata/logs/system/journal ${TEST_CONTENT_PATH}/logs/var/log/journal
+  add_lines testdata/input/kubernetes/audit/audit.log ${TEST_CONTENT_PATH}/logs/var/log/kubernetes/audit/audit.log
+  add_lines testdata/input/audit/audit.log ${TEST_CONTENT_PATH}/logs/var/log/audit/audit.log
+  add_lines testdata/input/system/syslog ${TEST_CONTENT_PATH}/logs/var/log/syslog
+  add_lines testdata/input/system/messages ${TEST_CONTENT_PATH}/logs/var/log/messages
+  add_lines testdata/input/system/journal ${TEST_CONTENT_PATH}/logs/var/log/journal
 
   echo "=> Waiting until FluentBit process all logs (${PARSE_TIMEOUT} seconds)"
   sleep ${PARSE_TIMEOUT}
@@ -178,7 +178,7 @@ run_fluentbit_test_logic() {
   echo "=> Run the docker container to analyze FluentBit parsed logs and compare with expected data"
   docker run --rm --name fluent-pipeline-test \
     -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/output/:/output-logs/actual:ro \
-    -v ${TEST_HOME_PATH}/fluent-pipeline-test/output-logs/fluentbit/:/output-logs/expected:ro \
+    -v ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/output/fluentbit/:/output-logs/expected:ro \
     ${FLUENT_PIPELINE_REPLACER_IMAGE} \
     -agent fluentbit \
     -stage test \
@@ -210,7 +210,7 @@ run_fluentbit_ha_test_logic() {
   chmod -R ugo+rw ${TEST_CONTENT_PATH}/
   chmod -R u+x fluent-pipeline-test/scripts
   chmod -R ugo+r \
-    fluent-pipeline-test/output-logs/fluentbit/ \
+    fluent-pipeline-test/testdata/output/fluentbit/ \
     controllers/fluentbit-forwarder-aggregator/forwarder.configmap/ \
     controllers/fluentbit-forwarder-aggregator/aggregator.configmap/
 
@@ -279,11 +279,11 @@ run_fluentbit_ha_test_logic() {
   sleep ${CFG_TIMEOUT}
 
   echo "=> Start print prepared test data in logs"
-  add_lines fluent-pipeline-test/testdata/logs/kubernetes/audit/audit.log ${TEST_CONTENT_PATH}/logs/var/log/kubernetes/audit/audit.log
-  add_lines fluent-pipeline-test/testdata/logs/audit/audit.log ${TEST_CONTENT_PATH}/logs/var/log/audit/audit.log
-  add_lines fluent-pipeline-test/testdata/logs/system/syslog ${TEST_CONTENT_PATH}/logs/var/log/syslog
-  add_lines fluent-pipeline-test/testdata/logs/system/messages ${TEST_CONTENT_PATH}/logs/var/log/messages
-  add_lines fluent-pipeline-test/testdata/logs/system/journal ${TEST_CONTENT_PATH}/logs/var/log/journal
+  add_lines fluent-pipeline-test/testdata/input/kubernetes/audit/audit.log ${TEST_CONTENT_PATH}/logs/var/log/kubernetes/audit/audit.log
+  add_lines fluent-pipeline-test/testdata/input/audit/audit.log ${TEST_CONTENT_PATH}/logs/var/log/audit/audit.log
+  add_lines fluent-pipeline-test/testdata/input/system/syslog ${TEST_CONTENT_PATH}/logs/var/log/syslog
+  add_lines fluent-pipeline-test/testdata/input/system/messages ${TEST_CONTENT_PATH}/logs/var/log/messages
+  add_lines fluent-pipeline-test/testdata/input/system/journal ${TEST_CONTENT_PATH}/logs/var/log/journal
 
   echo "=> Waiting until FluentBit process all logs (${PARSE_TIMEOUT} seconds)"
   sleep ${PARSE_TIMEOUT}
@@ -303,7 +303,7 @@ run_fluentbit_ha_test_logic() {
   echo "=> Run the docker container to analyze FluentBit parsed logs and compare with expected data"
   docker run --rm --name fluent-pipeline-test \
     -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/output/:/output-logs/actual:ro \
-    -v ${TEST_HOME_PATH}/fluent-pipeline-test/output-logs/fluentbit/:/output-logs/expected:ro \
+    -v ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/output/fluentbit/:/output-logs/expected:ro \
     ${FLUENT_PIPELINE_REPLACER_IMAGE} \
     -agent fluentbitha \
     -stage test \
@@ -329,3 +329,4 @@ case $1 in
   ;;
 
 esac
+
