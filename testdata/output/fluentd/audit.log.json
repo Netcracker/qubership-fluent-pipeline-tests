@@ -1,0 +1,9 @@
+[
+  {
+    "type": "AVC",
+    "logId": "os-audit-1",
+    "message": "apparmor=\"DENIED\" operation=\"ptrace\" profile=\"cri-containerd.apparmor.d\" pid=106437 comm=\"node_exporter\" requested_mask=\"read\" denied_mask=\"read\" peer=\"unconfined\" logId=\"os-audit-1\"",
+    "hostname": "fake-fluent",
+    "kubernetes_host": "fake-node"
+  }
+]
