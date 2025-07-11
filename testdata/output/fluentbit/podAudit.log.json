@@ -1,198 +1,224 @@
 [
   {
-    "logId": "podAudit-1",
-    "container": "fake-container",
-    "hostname": "fake-fluent",
-    "nodename": "fake-node",
-    "labels": {
-      "metadata.app": "fluent-pipeline-test",
-      "metadata.app.kubernetes.io/version": "0.1.0"
-    },
-    "pod": "fake-fluent-577d48c6cb-4gfmp",
     "namespace": "fake-namespace",
-    "time": "2023-12-20T12:51:32.271007468Z",
-    "level": "INFO",
-    "nc_audit_label": "true",
-    "logType": "audit",
-    "version": "v1",
     "meta": {
-      "eventId": "ce6d2971-af95-4986-b769-eb800c2e3c8b",
-      "requestId": "shiva_123",
-      "time": "2024-04-02T17:39:03.169Z "
+        "eventId": "00000000-0000-0000-0000-000000000000",
+        "time": "2024-04-02T17:39:03.169Z ",
+        "requestId": "shiva_123"
     },
+    "source_level": "INFO",
+    "time": "2023-12-20T12:51:32.271007468Z",
+    "logId": "podAudit-1",
     "source": {
-      "app": {
-        "name": "NRM"
-      },
-      "service": {
-        "name": "Cloud ECA",
-        "version": "bt/v2023.3.15-rc6",
-        "hostname": "10.98.94.52"
-      },
-      "method": "org.qubership.nrm.api.core.v2023_3_0.services.BatchApply/TransactionalExecute"
-    },
-    "subject": {
-      "address": "10.206.15.193:59730",
-      "authentication": {
-        "bearer": {
-          "payload": {
-            "aud": "account",
-            "azp": "qa01-billing-business-api",
-            "clientAddress": "10.206.15.193",
-            "clientHost": "10.206.15.193",
-            "clientId": "qa01-billing-business-api",
-            "client_id": "qa01-billing-business-api",
-            "exp": 1712081785,
-            "iat": 1712063784,
-            "iss": "http://identity-provider-internal:8080/auth/realms/cloud-common",
-            "jti": "a3c8716a-a799-4acc-93ea-a84deaf7095f",
-            "level": "m2m",
-            "owner": "business-api",
-            "realm_access": {
-              "roles": ["offline_access", "default-roles-cloud-common", "ROLE_M2M", "uma_authorization", "ROLE_business-api"]
-            },
-            "scope": "openid",
-            "sub": "2856575a-7d80-4a1c-95cf-80f1158f5393",
-            "typ": "Bearer"
-          }
+        "method": "org.qubership.nrm.api.core.v2023_3_0.services.BatchApply/TransactionalExecute",
+        "service": {
+            "version": "bt/v2023.3.15-rc6",
+            "name": "Cloud ECA",
+            "hostname": "12.34.56.78"
+        },
+        "app": {
+            "name": "NRM"
         }
-      }
     },
-    "object": {},
+    "hostname": "fake-fluent",
+    "labels": {
+        "metadata.app.kubernetes.io/version": "0.1.0",
+        "metadata.app": "fluent-pipeline-test"
+    },
     "result": {
-      "success": true
+        "success": true
     },
-    "log": "{\"logType\":\"audit\",\"level\":\"INFO\",\"logId\":\"podAudit-1\",\"version\":\"v1\",\"meta\":{\"eventId\":\"ce6d2971-af95-4986-b769-eb800c2e3c8b\",\"requestId\":\"shiva_123\",\"time\":\"2024-04-02T17:39:03.169Z \"},\"source\":{\"app\":{\"name\":\"NRM\"},\"service\":{\"name\":\"Cloud ECA\",\"version\":\"bt/v2023.3.15-rc6\",\"hostname\":\"10.98.94.52\"},\"method\":\"org.qubership.nrm.api.core.v2023_3_0.services.BatchApply/TransactionalExecute\"},\"subject\":{\"address\":\"10.206.15.193:59730\",\"authentication\":{\"bearer\":{\"payload\":{\"aud\":\"account\",\"azp\":\"qa01-billing-business-api\",\"clientAddress\":\"10.206.15.193\",\"clientHost\":\"10.206.15.193\",\"clientId\":\"qa01-billing-business-api\",\"client_id\":\"qa01-billing-business-api\",\"exp\":1712081785,\"iat\":1712063784,\"iss\":\"http://identity-provider-internal:8080/auth/realms/cloud-common\",\"jti\":\"a3c8716a-a799-4acc-93ea-a84deaf7095f\",\"level\":\"m2m\",\"owner\":\"business-api\",\"realm_access\":{\"roles\":[\"offline_access\",\"default-roles-cloud-common\",\"ROLE_M2M\",\"uma_authorization\",\"ROLE_business-api\"]},\"scope\":\"openid\",\"sub\":\"2856575a-7d80-4a1c-95cf-80f1158f5393\",\"typ\":\"Bearer\"}}}},\"object\":{},\"result\":{\"success\":true}}"
+    "nc_audit_label": "true",
+    "subject": {
+        "authentication": {
+            "bearer": {
+                "payload": {
+                    "jti": "00000000-0000-0000-0000-000000000000",
+                    "owner": "business-api",
+                    "aud": "account",
+                    "clientHost": "12.34.56.78",
+                    "realm_access": {
+                        "roles": [
+                            "offline_access",
+                            "default-roles-cloud-common",
+                            "ROLE_M2M",
+                            "uma_authorization",
+                            "ROLE_default"
+                        ]
+                    },
+                    "azp": "fake-id",
+                    "typ": "Bearer",
+                    "level": "m2m",
+                    "scope": "openid",
+                    "clientAddress": "12.34.56.78",
+                    "client_id": "fake-id",
+                    "clientId": "fake-id",
+                    "iat": 1111111111,
+                    "iss": "http://identity-provider-internal:8080/auth/realms/fake-realm",
+                    "sub": "00000000-0000-0000-0000-000000000000",
+                    "exp": 1111111111
+                }
+            }
+        },
+        "address": "12.34.56.78:12345"
+    },
+    "parsed": "true",
+    "nodename": "fake-node",
+    "level": "info",
+    "version": "v1",
+    "object": {},
+    "container": "fake-container",
+    "original_log": "{\"logType\":\"audit\",\"level\":\"INFO\",\"logId\":\"podAudit-1\",\"version\":\"v1\",\"meta\":{\"eventId\":\"00000000-0000-0000-0000-000000000000\",\"requestId\":\"shiva_123\",\"time\":\"2024-04-02T17:39:03.169Z \"},\"source\":{\"app\":{\"name\":\"NRM\"},\"service\":{\"name\":\"Cloud ECA\",\"version\":\"bt/v2023.3.15-rc6\",\"hostname\":\"12.34.56.78\"},\"method\":\"org.qubership.nrm.api.core.v2023_3_0.services.BatchApply/TransactionalExecute\"},\"subject\":{\"address\":\"12.34.56.78:12345\",\"authentication\":{\"bearer\":{\"payload\":{\"aud\":\"account\",\"azp\":\"fake-id\",\"clientAddress\":\"12.34.56.78\",\"clientHost\":\"12.34.56.78\",\"clientId\":\"fake-id\",\"client_id\":\"fake-id\",\"exp\":1111111111,\"iat\":1111111111,\"iss\":\"http://identity-provider-internal:8080/auth/realms/fake-realm\",\"jti\":\"00000000-0000-0000-0000-000000000000\",\"level\":\"m2m\",\"owner\":\"business-api\",\"realm_access\":{\"roles\":[\"offline_access\",\"default-roles-cloud-common\",\"ROLE_M2M\",\"uma_authorization\",\"ROLE_default\"]},\"scope\":\"openid\",\"sub\":\"00000000-0000-0000-0000-000000000000\",\"typ\":\"Bearer\"}}}},\"object\":{},\"result\":{\"success\":true}}",
+    "short_message": "{\"logType\":\"audit\",\"level\":\"INFO\",\"logId\":\"podAudit-1\",\"version\":\"v1\",\"meta\":{\"eventId\":\"00000000-0000-0000-0000-000000000000\",\"requestId\":\"shiva_123\",\"time\":\"2024-04-02T17:39:03.169Z \"},\"source\":{\"app\":{\"name\":\"NRM\"},\"service\":{\"name\":\"Cloud ECA\",\"version\":\"bt/v2023.3.15-rc6\",\"hostname\":\"12.34.56.78\"},\"method\":\"org.qubership.nrm.api.core.v2023_3_0.services.BatchApply/TransactionalExecute\"},\"subject\":{\"address\":\"12.34.56.78:12345\",\"authentication\":{\"bearer\":{\"payload\":{\"aud\":\"account\",\"azp\":\"fake-id\",\"clientAddress\":\"12.34.56.78\",\"clientHost\":\"12.34.56.78\",\"clientId\":\"fake-id\",\"client_id\":\"fake-id\",\"exp\":1111111111,\"iat\":1111111111,\"iss\":\"http://identity-provider-internal:8080/auth/realms/fake-realm\",\"jti\":\"00000000-0000-0000-0000-000000000000\",\"level\":\"m2m\",\"owner\":\"business-api\",\"realm_access\":{\"roles\":[\"offline_access\",\"default-roles-cloud-common\",\"ROLE_M2M\",\"uma_authorization\",\"ROLE_default\"]},\"scope\":\"openid\",\"sub\":\"00000000-0000-0000-0000-000000000000\",\"typ\":\"Bearer\"}}}},\"object\":{},\"result\":{\"success\":true}}",
+    "logType": "audit",
+    "pod": "fake-fluent-577d48c6cb-4gfmp"
   },
-  {
-    "logId":"podAudit-2",
+{
     "container": "fake-container",
     "hostname": "fake-fluent",
-    "nodename": "fake-node",
     "labels": {
-      "metadata.app": "fluent-pipeline-test",
-      "metadata.app.kubernetes.io/version": "0.1.0"
+        "metadata.app": "fluent-pipeline-test",
+        "metadata.app.kubernetes.io/version": "0.1.0"
     },
-    "pod": "fake-fluent-577d48c6cb-4gfmp",
-    "namespace": "fake-namespace",
-    "time": "2024-04-02T13:38:12.549764147Z",
     "level": "info",
     "level_unknown": "true",
-    "nc_audit_label": "true",
+    "logId": "podAudit-2",
     "logType": "audit",
-    "version": "v1",
     "meta": {
-      "eventId": "ce6d2971-af95-4986-b769-eb800c2e3c8b",
-      "requestId": "shiva_123",
-      "time": "2024-04-02T17:39:03.179Z "
+        "eventId": "00000000-0000-0000-0000-000000000000",
+        "requestId": "shiva_123",
+        "time": "2024-04-02T17:39:03.179Z "
     },
+    "namespace": "fake-namespace",
+    "nc_audit_label": "true",
+    "nodename": "fake-node",
+    "object": {},
+    "original_log": "{\"logType\":\"audit\",\"version\":\"v1\",\"logId\":\"podAudit-2\",\"meta\":{\"eventId\":\"00000000-0000-0000-0000-000000000000\",\"requestId\":\"shiva_123\",\"time\":\"2024-04-02T17:39:03.179Z \"},\"source\":{\"app\":{\"name\":\"NRM\"},\"service\":{\"name\":\"Cloud ECA\",\"version\":\"bt/v2023.3.15-rc6\",\"hostname\":\"12.34.56.78\"},\"method\":\"org.qubership.nrm.api.core.v2023_3_0.services.BatchApply/TransactionalExecute\"},\"subject\":{\"address\":\"12.34.56.78:12345\",\"authentication\":{\"bearer\":{\"payload\":{\"aud\":\"account\",\"azp\":\"fake-id\",\"clientAddress\":\"12.34.56.78\",\"clientHost\":\"12.34.56.78\",\"clientId\":\"fake-id\",\"client_id\":\"fake-id\",\"exp\":1111111111,\"iat\":1111111111,\"iss\":\"http://identity-provider-internal:8080/auth/realms/fake-realm\",\"jti\":\"00000000-0000-0000-0000-000000000000\",\"level\":\"m2m\",\"owner\":\"business-api\",\"realm_access\":{\"roles\":[\"offline_access\",\"default-roles-cloud-common\",\"ROLE_M2M\",\"uma_authorization\",\"ROLE_default\"]},\"scope\":\"openid\",\"sub\":\"00000000-0000-0000-0000-000000000000\",\"typ\":\"Bearer\"}}}},\"object\":{},\"result\":{\"success\":true}}",
+    "parsed": "true",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "result": {
+        "success": true
+    },
+    "short_message": "{\"logType\":\"audit\",\"version\":\"v1\",\"logId\":\"podAudit-2\",\"meta\":{\"eventId\":\"00000000-0000-0000-0000-000000000000\",\"requestId\":\"shiva_123\",\"time\":\"2024-04-02T17:39:03.179Z \"},\"source\":{\"app\":{\"name\":\"NRM\"},\"service\":{\"name\":\"Cloud ECA\",\"version\":\"bt/v2023.3.15-rc6\",\"hostname\":\"12.34.56.78\"},\"method\":\"org.qubership.nrm.api.core.v2023_3_0.services.BatchApply/TransactionalExecute\"},\"subject\":{\"address\":\"12.34.56.78:12345\",\"authentication\":{\"bearer\":{\"payload\":{\"aud\":\"account\",\"azp\":\"fake-id\",\"clientAddress\":\"12.34.56.78\",\"clientHost\":\"12.34.56.78\",\"clientId\":\"fake-id\",\"client_id\":\"fake-id\",\"exp\":1111111111,\"iat\":1111111111,\"iss\":\"http://identity-provider-internal:8080/auth/realms/fake-realm\",\"jti\":\"00000000-0000-0000-0000-000000000000\",\"level\":\"m2m\",\"owner\":\"business-api\",\"realm_access\":{\"roles\":[\"offline_access\",\"default-roles-cloud-common\",\"ROLE_M2M\",\"uma_authorization\",\"ROLE_default\"]},\"scope\":\"openid\",\"sub\":\"00000000-0000-0000-0000-000000000000\",\"typ\":\"Bearer\"}}}},\"object\":{},\"result\":{\"success\":true}}",
     "source": {
-      "app": {
-        "name": "NRM"
-      },
-      "service": {
-        "name": "Cloud ECA",
-        "version": "bt/v2023.3.15-rc6",
-        "hostname": "10.98.94.52"
-      },
-      "method": "org.qubership.nrm.api.core.v2023_3_0.services.BatchApply/TransactionalExecute"
+        "app": {
+            "name": "NRM"
+        },
+        "method": "org.qubership.nrm.api.core.v2023_3_0.services.BatchApply/TransactionalExecute",
+        "service": {
+            "hostname": "12.34.56.78",
+            "name": "Cloud ECA",
+            "version": "bt/v2023.3.15-rc6"
+        }
     },
     "subject": {
-      "address": "10.206.15.193:59730",
-      "authentication": {
-        "bearer": {
-          "payload": {
-            "aud": "account",
-            "azp": "qa01-billing-business-api",
-            "clientAddress": "10.206.15.193",
-            "clientHost": "10.206.15.193",
-            "clientId": "qa01-billing-business-api",
-            "client_id": "qa01-billing-business-api",
-            "exp": 1712081785,
-            "iat": 1712063784,
-            "iss": "http://identity-provider-internal:8080/auth/realms/cloud-common",
-            "jti": "a3c8716a-a799-4acc-93ea-a84deaf7095f",
-            "level": "m2m",
-            "owner": "business-api",
-            "realm_access": {
-              "roles": ["offline_access", "default-roles-cloud-common", "ROLE_M2M", "uma_authorization", "ROLE_business-api"]
-            },
-            "scope": "openid",
-            "sub": "2856575a-7d80-4a1c-95cf-80f1158f5393",
-            "typ": "Bearer"
-          }
+        "address": "12.34.56.78:12345",
+        "authentication": {
+            "bearer": {
+                "payload": {
+                    "aud": "account",
+                    "azp": "fake-id",
+                    "clientAddress": "12.34.56.78",
+                    "clientHost": "12.34.56.78",
+                    "clientId": "fake-id",
+                    "client_id": "fake-id",
+                    "exp": 1111111111,
+                    "iat": 1111111111,
+                    "iss": "http://identity-provider-internal:8080/auth/realms/fake-realm",
+                    "jti": "00000000-0000-0000-0000-000000000000",
+                    "level": "m2m",
+                    "owner": "business-api",
+                    "realm_access": {
+                        "roles": [
+                            "offline_access",
+                            "default-roles-cloud-common",
+                            "ROLE_M2M",
+                            "uma_authorization",
+                            "ROLE_default"
+                        ]
+                    },
+                    "scope": "openid",
+                    "sub": "00000000-0000-0000-0000-000000000000",
+                    "typ": "Bearer"
+                }
+            }
         }
-      }
     },
-    "object": {},
-    "result": {
-      "success": true
-    },
-    "log": "{\"logType\":\"audit\",\"version\":\"v1\",\"logId\":\"podAudit-2\",\"meta\":{\"eventId\":\"ce6d2971-af95-4986-b769-eb800c2e3c8b\",\"requestId\":\"shiva_123\",\"time\":\"2024-04-02T17:39:03.179Z \"},\"source\":{\"app\":{\"name\":\"NRM\"},\"service\":{\"name\":\"Cloud ECA\",\"version\":\"bt/v2023.3.15-rc6\",\"hostname\":\"10.98.94.52\"},\"method\":\"org.qubership.nrm.api.core.v2023_3_0.services.BatchApply/TransactionalExecute\"},\"subject\":{\"address\":\"10.206.15.193:59730\",\"authentication\":{\"bearer\":{\"payload\":{\"aud\":\"account\",\"azp\":\"qa01-billing-business-api\",\"clientAddress\":\"10.206.15.193\",\"clientHost\":\"10.206.15.193\",\"clientId\":\"qa01-billing-business-api\",\"client_id\":\"qa01-billing-business-api\",\"exp\":1712081785,\"iat\":1712063784,\"iss\":\"http://identity-provider-internal:8080/auth/realms/cloud-common\",\"jti\":\"a3c8716a-a799-4acc-93ea-a84deaf7095f\",\"level\":\"m2m\",\"owner\":\"business-api\",\"realm_access\":{\"roles\":[\"offline_access\",\"default-roles-cloud-common\",\"ROLE_M2M\",\"uma_authorization\",\"ROLE_business-api\"]},\"scope\":\"openid\",\"sub\":\"2856575a-7d80-4a1c-95cf-80f1158f5393\",\"typ\":\"Bearer\"}}}},\"object\":{},\"result\":{\"success\":true}}"
-  },
+    "time": "2024-04-02T13:38:12.549764147Z",
+    "version": "v1"
+},
   {
-    "logId":"podAudit-3",
     "container": "fake-container",
     "hostname": "fake-fluent",
-    "nodename": "fake-node",
     "labels": {
-      "metadata.app": "fluent-pipeline-test",
-      "metadata.app.kubernetes.io/version": "0.1.0"
+        "metadata.app": "fluent-pipeline-test",
+        "metadata.app.kubernetes.io/version": "0.1.0"
     },
-    "pod": "fake-fluent-577d48c6cb-4gfmp",
-    "namespace": "fake-namespace",
-    "time": "2024-04-02T13:38:12.549768326Z",
     "level": "err",
-    "nc_audit_label": "true",
+    "logId": "podAudit-3",
     "logType": "audit",
-    "version": "v1",
     "meta": {
-      "eventId": "ce6d2971-af95-4986-b769-eb800c2e3c8b",
-      "requestId": "shiva_123",
-      "time": "2024-04-02T17:39:03.189Z "
+        "eventId": "00000000-0000-0000-0000-000000000000",
+        "requestId": "shiva_123",
+        "time": "2024-04-02T17:39:03.189Z "
     },
-    "source": {
-      "app": {
-        "name": "NRM"
-      },
-      "service": {
-        "name": "Cloud ECA",
-        "version": "bt/v2023.3.15-rc6",
-        "hostname": "10.98.94.52"
-      },
-      "method": "org.qubership.nrm.api.core.v2023_3_0.services.BatchApply/TransactionalExecute"
-    },
-    "subject": {
-      "address": "10.206.15.193:59730",
-      "authentication": {
-        "bearer": {
-          "payload": {
-            "aud": "account",
-            "azp": "qa01-billing-business-api",
-            "clientAddress": "10.206.15.193",
-            "clientHost": "10.206.15.193",
-            "clientId": "qa01-billing-business-api",
-            "client_id": "qa01-billing-business-api",
-            "exp": 1712081785,
-            "iat": 1712063784,
-            "iss": "http://identity-provider-internal:8080/auth/realms/cloud-common",
-            "jti": "a3c8716a-a799-4acc-93ea-a84deaf7095f",
-            "level": "m2m",
-            "owner": "business-api",
-            "realm_access": {
-              "roles": ["offline_access", "default-roles-cloud-common", "ROLE_M2M", "uma_authorization", "ROLE_business-api"]
-            },
-            "scope": "openid",
-            "sub": "2856575a-7d80-4a1c-95cf-80f1158f5393",
-            "typ": "Bearer"
-          }
-        }
-      }
-    },
+    "namespace": "fake-namespace",
+    "nc_audit_label": "true",
+    "nodename": "fake-node",
     "object": {},
+    "original_log": "{\"logType\":\"audit\",\"level\":\"ERROR\",\"logId\":\"podAudit-3\",\"version\":\"v1\",\"meta\":{\"eventId\":\"00000000-0000-0000-0000-000000000000\",\"requestId\":\"shiva_123\",\"time\":\"2024-04-02T17:39:03.189Z \"},\"source\":{\"app\":{\"name\":\"NRM\"},\"service\":{\"name\":\"Cloud ECA\",\"version\":\"bt/v2023.3.15-rc6\",\"hostname\":\"12.34.56.78\"},\"method\":\"org.qubership.nrm.api.core.v2023_3_0.services.BatchApply/TransactionalExecute\"},\"subject\":{\"address\":\"12.34.56.78:12345\",\"authentication\":{\"bearer\":{\"payload\":{\"aud\":\"account\",\"azp\":\"fake-id\",\"clientAddress\":\"12.34.56.78\",\"clientHost\":\"12.34.56.78\",\"clientId\":\"fake-id\",\"client_id\":\"fake-id\",\"exp\":1111111111,\"iat\":1111111111,\"iss\":\"http://identity-provider-internal:8080/auth/realms/fake-realm\",\"jti\":\"00000000-0000-0000-0000-000000000000\",\"level\":\"m2m\",\"owner\":\"business-api\",\"realm_access\":{\"roles\":[\"offline_access\",\"default-roles-cloud-common\",\"ROLE_M2M\",\"uma_authorization\",\"ROLE_default\"]},\"scope\":\"openid\",\"sub\":\"00000000-0000-0000-0000-000000000000\",\"typ\":\"Bearer\"}}}},\"object\":{},\"result\":{\"success\":true}}",
+    "parsed": "true",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
     "result": {
-      "success": true
+        "success": true
     },
-    "log": "{\"logType\":\"audit\",\"level\":\"ERROR\",\"logId\":\"podAudit-3\",\"version\":\"v1\",\"meta\":{\"eventId\":\"ce6d2971-af95-4986-b769-eb800c2e3c8b\",\"requestId\":\"shiva_123\",\"time\":\"2024-04-02T17:39:03.189Z \"},\"source\":{\"app\":{\"name\":\"NRM\"},\"service\":{\"name\":\"Cloud ECA\",\"version\":\"bt/v2023.3.15-rc6\",\"hostname\":\"10.98.94.52\"},\"method\":\"org.qubership.nrm.api.core.v2023_3_0.services.BatchApply/TransactionalExecute\"},\"subject\":{\"address\":\"10.206.15.193:59730\",\"authentication\":{\"bearer\":{\"payload\":{\"aud\":\"account\",\"azp\":\"qa01-billing-business-api\",\"clientAddress\":\"10.206.15.193\",\"clientHost\":\"10.206.15.193\",\"clientId\":\"qa01-billing-business-api\",\"client_id\":\"qa01-billing-business-api\",\"exp\":1712081785,\"iat\":1712063784,\"iss\":\"http://identity-provider-internal:8080/auth/realms/cloud-common\",\"jti\":\"a3c8716a-a799-4acc-93ea-a84deaf7095f\",\"level\":\"m2m\",\"owner\":\"business-api\",\"realm_access\":{\"roles\":[\"offline_access\",\"default-roles-cloud-common\",\"ROLE_M2M\",\"uma_authorization\",\"ROLE_business-api\"]},\"scope\":\"openid\",\"sub\":\"2856575a-7d80-4a1c-95cf-80f1158f5393\",\"typ\":\"Bearer\"}}}},\"object\":{},\"result\":{\"success\":true}}"
+    "short_message": "{\"logType\":\"audit\",\"level\":\"ERROR\",\"logId\":\"podAudit-3\",\"version\":\"v1\",\"meta\":{\"eventId\":\"00000000-0000-0000-0000-000000000000\",\"requestId\":\"shiva_123\",\"time\":\"2024-04-02T17:39:03.189Z \"},\"source\":{\"app\":{\"name\":\"NRM\"},\"service\":{\"name\":\"Cloud ECA\",\"version\":\"bt/v2023.3.15-rc6\",\"hostname\":\"12.34.56.78\"},\"method\":\"org.qubership.nrm.api.core.v2023_3_0.services.BatchApply/TransactionalExecute\"},\"subject\":{\"address\":\"12.34.56.78:12345\",\"authentication\":{\"bearer\":{\"payload\":{\"aud\":\"account\",\"azp\":\"fake-id\",\"clientAddress\":\"12.34.56.78\",\"clientHost\":\"12.34.56.78\",\"clientId\":\"fake-id\",\"client_id\":\"fake-id\",\"exp\":1111111111,\"iat\":1111111111,\"iss\":\"http://identity-provider-internal:8080/auth/realms/fake-realm\",\"jti\":\"00000000-0000-0000-0000-000000000000\",\"level\":\"m2m\",\"owner\":\"business-api\",\"realm_access\":{\"roles\":[\"offline_access\",\"default-roles-cloud-common\",\"ROLE_M2M\",\"uma_authorization\",\"ROLE_default\"]},\"scope\":\"openid\",\"sub\":\"00000000-0000-0000-0000-000000000000\",\"typ\":\"Bearer\"}}}},\"object\":{},\"result\":{\"success\":true}}",
+    "source": {
+        "app": {
+            "name": "NRM"
+        },
+        "method": "org.qubership.nrm.api.core.v2023_3_0.services.BatchApply/TransactionalExecute",
+        "service": {
+            "hostname": "12.34.56.78",
+            "name": "Cloud ECA",
+            "version": "bt/v2023.3.15-rc6"
+        }
+    },
+    "source_level": "ERROR",
+    "subject": {
+        "address": "12.34.56.78:12345",
+        "authentication": {
+            "bearer": {
+                "payload": {
+                    "aud": "account",
+                    "azp": "fake-id",
+                    "clientAddress": "12.34.56.78",
+                    "clientHost": "12.34.56.78",
+                    "clientId": "fake-id",
+                    "client_id": "fake-id",
+                    "exp": 1111111111,
+                    "iat": 1111111111,
+                    "iss": "http://identity-provider-internal:8080/auth/realms/fake-realm",
+                    "jti": "00000000-0000-0000-0000-000000000000",
+                    "level": "m2m",
+                    "owner": "business-api",
+                    "realm_access": {
+                        "roles": [
+                            "offline_access",
+                            "default-roles-cloud-common",
+                            "ROLE_M2M",
+                            "uma_authorization",
+                            "ROLE_default"
+                        ]
+                    },
+                    "scope": "openid",
+                    "sub": "00000000-0000-0000-0000-000000000000",
+                    "typ": "Bearer"
+                }
+            }
+        }
+    },
+    "time": "2024-04-02T13:38:12.549768326Z",
+    "version": "v1"
   }
 ]

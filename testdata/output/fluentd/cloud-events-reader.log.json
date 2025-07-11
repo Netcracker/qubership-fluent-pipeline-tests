@@ -2,7 +2,7 @@
   {
     "time": "2024-06-11T07:40:20.272007468Z",
     "fluentd_time": "2024-06-11T07:40:20.272Z",
-    "log": "{\"time\":\"2024-06-11T07:40:20\",\"logId\":\"cloud-events-reader\",\"involvedObjectKind\":\"Pod\",\"involvedObjectNamespace\":\"rabbitmq\",\"involvedObjectName\":\"rabbitmq-operator-59d457d796-xh27k\",\"involvedObjectUid\":\"3a82a4f3-7504-44f6-b876-5470d8f2a46e\",\"involvedObjectApiVersion\":\"v1\",\"involvedObjectResourceVersion\":\"105845519\",\"reason\":\"BackOff\",\"type\":\"Normal\",\"message\":\"Back-off pulling image \\\"ghcr.io/netcracker/qubership-disaster-recovery-daemon:v0.4.5\\\"\",\"kind\":\"KubernetesEvent\"}",
+    "log": "{\"time\":\"2024-06-11T07:40:20\",\"logId\":\"cloud-events-reader\",\"involvedObjectKind\":\"Pod\",\"involvedObjectNamespace\":\"rabbitmq\",\"involvedObjectName\":\"rabbitmq-operator-59d457d796-xh27k\",\"involvedObjectUid\":\"00000000-0000-0000-0000-000000000000\",\"involvedObjectApiVersion\":\"v1\",\"involvedObjectResourceVersion\":\"105845519\",\"reason\":\"BackOff\",\"type\":\"Normal\",\"message\":\"Back-off pulling image \\\"ghcr.io/netcracker/qubership-disaster-recovery-daemon:v0.4.5\\\"\",\"kind\":\"KubernetesEvent\"}",
     "hostname": "fake-fluent",
     "logId": "cloud-events-reader",
     "kubernetes_host": "fake-node",
@@ -13,7 +13,7 @@
     "involvedObjectKind": "Pod",
     "namespace": "rabbitmq",
     "involvedObjectName": "rabbitmq-operator-59d457d796-xh27k",
-    "involvedObjectUid": "3a82a4f3-7504-44f6-b876-5470d8f2a46e",
+    "involvedObjectUid": "00000000-0000-0000-0000-000000000000",
     "involvedObjectApiVersion": "v1",
     "involvedObjectResourceVersion": "105845519",
     "reason": "BackOff",

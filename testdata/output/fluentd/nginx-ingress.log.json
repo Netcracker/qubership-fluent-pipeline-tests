@@ -74,7 +74,7 @@
   {
     "time": "2024-06-14T08:33:59.146941221Z",
     "fluentd_time": "2024-06-14T08:33:59.146Z",
-    "log": "I0614 08:33:59.146778       7 event.go:364] [logId=nginx-5] Event(v1.ObjectReference{Kind:\"Pod\", Namespace:\"ingress-nginx\", Name:\"ingress-nginx-controller-qqsq6\", UID:\"ea4c2728-3141-4520-9cb0-13d284189b0a\", APIVersion:\"v1\", ResourceVersion:\"897342981\", FieldPath:\"\"}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration",
+    "log": "I0614 08:33:59.146778       7 event.go:364] [logId=nginx-5] Event(v1.ObjectReference{Kind:\"Pod\", Namespace:\"ingress-nginx\", Name:\"ingress-nginx-controller-qqsq6\", UID:\"00000000-0000-0000-0000-000000000000\", APIVersion:\"v1\", ResourceVersion:\"897342981\", FieldPath:\"\"}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration",
     "hostname": "fake-fluent",
     "logId": "nginx-5",
     "level": "I",

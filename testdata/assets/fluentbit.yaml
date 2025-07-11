@@ -16,7 +16,7 @@ spec:
     systemAuditLogging: true
     kubeAuditLogging: true
     kubeApiserverAuditLogging: true
-    billCycleConf: true
+    billCycleConf: false
 
     watchKubernetesMetadata: true
     mockKubeData: true
@@ -43,4 +43,3 @@ spec:
           Format       plain
           Path         /fluentbit-output
           File         output-log
-

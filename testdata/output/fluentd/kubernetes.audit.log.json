@@ -8,13 +8,13 @@
     "logId": "kubernetes-audit-1",
     "message": "empty",
     "nc_audit_label": "true",
-    "auditID": "4bce31be-8baa-4482-8d47-fec25fff8ea5",
+    "auditID": "00000000-0000-0000-0000-000000000000",
     "stage": "ResponseComplete",
     "requestURI": "/api/v1/namespaces/postgres-ek/configmaps/patroni-leader",
     "verb": "patch",
     "user": {
       "username": "system:serviceaccount:postgres-ek:patroni-sa",
-      "uid": "f9c156f7-83b4-49f3-8c82-47fafd448777",
+      "uid": "00000000-0000-0000-0000-000000000000",
       "groups": [
         "system:serviceaccounts",
         "system:serviceaccounts:postgres-ek",
@@ -25,7 +25,7 @@
           "pg-patroni-node1-0"
         ],
         "authentication.kubernetes.io/pod-uid": [
-          "159dce59-7cd7-4067-aac6-cbc77f9331b2"
+          "00000000-0000-0000-0000-000000000000"
         ]
       }
     },
@@ -59,13 +59,13 @@
     "logId": "kubernetes-audit-2",
     "message": "empty",
     "nc_audit_label": "true",
-    "auditID": "18ed463e-e265-4709-82b9-b8df65184619",
+    "auditID": "00000000-0000-0000-0000-000000000000",
     "stage": "ResponseComplete",
     "requestURI": "/api/v1/namespaces/cloudberry/configmaps/cloudberry-common-leader",
     "verb": "patch",
     "user": {
       "username": "system:serviceaccount:cloudberry:greenplumdb-sa",
-      "uid": "9a0638fa-d0fe-433d-a95f-6bdd5e5c52a4",
+      "uid": "00000000-0000-0000-0000-000000000000",
       "groups": [
         "system:serviceaccounts",
         "system:serviceaccounts:cloudberry",
@@ -76,7 +76,7 @@
           "gpdb-master-1-0"
         ],
         "authentication.kubernetes.io/pod-uid": [
-          "692ecd9c-a7d0-45cb-abb9-8d6d94143dcb"
+          "00000000-0000-0000-0000-000000000000"
         ]
       }
     },

@@ -1,17 +1,21 @@
 [
   {
-    "container": "fake-container",
+    "source_level": "TRACE",
+    "original_log": "[2023-12-20T12:51:32.270] [TRACE] [logId=golanglog] Hello test log",
     "hostname": "fake-fluent",
-    "nodename": "fake-node",
-    "labels": {
-      "metadata.app": "fluent-pipeline-test",
-      "metadata.app.kubernetes.io/version": "0.1.0"
-    },
-    "pod": "fake-fluent-577d48c6cb-4gfmp",
     "namespace": "fake-namespace",
-    "time": "2023-12-20T12:51:32.272007468Z",
-    "level": "debug",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
     "logId": "golanglog",
-    "log": "[2023-12-20T12:51:32.270] [TRACE] [logId=golanglog] Hello test log"
+    "date": "2023-12-20T12:51:32.270",
+    "time": "2023-12-20T12:51:32.272007468Z",
+    "nodename": "fake-node",
+    "parsed": "true",
+    "level": "debug",
+    "short_message": "[logId=golanglog] Hello test log",
+    "labels": {
+        "metadata.app": "fluent-pipeline-test",
+        "metadata.app.kubernetes.io/version": "0.1.0"
+    },
+    "container": "fake-container"
   }
 ]

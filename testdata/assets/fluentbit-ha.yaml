@@ -16,7 +16,7 @@ spec:
     systemAuditLogging: true
     kubeAuditLogging: true
     kubeApiserverAuditLogging: true
-    billCycleConf: true
+    billCycleConf: false
 
     watchKubernetesMetadata: true
     mockKubeData: true

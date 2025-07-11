@@ -1,53 +1,79 @@
 [
   {
-    "\"nrm.qubership.org/application": "cm\"",
-    "container": "fake-container",
-    "hostname": "fake-fluent",
-    "nodename": "fake-node",
-    "labels": {
-      "metadata.app": "fluent-pipeline-test",
-      "metadata.app.kubernetes.io/version": "0.1.0"
-    },
-    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "source_level": "INFO",
+    "original_log": "[2024-07-20T11:51:31.234] [INFO] [\"nrm.qubership.org/application=cm\"] [logId=bill-cycle-1] it is example of bill cycle log message",
     "namespace": "fake-namespace",
+    "date": "2024-07-20T11:51:31.234",
     "time": "2024-07-20T11:51:31.234007468Z",
-    "level": "INFO",
-    "logId": "bill-cycle-1",
-    "nc_bill_cycle_label": "true",
-    "log": "[2024-07-20T11:51:31.234] [INFO] [\"nrm.qubership.org/application=cm\"] [logId=bill-cycle-1] it is example of bill cycle log message"
+    "nodename": "fake-node",
+    "hostname": "fake-fluent",
+    "short_message": "[\"nrm.qubership.org/application=cm\"] [logId=bill-cycle-1] it is example of bill cycle log message",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "parsed": "true",
+    "container": "fake-container",
+    "level": "info",
+    "labels": {
+        "metadata.app.kubernetes.io/version": "0.1.0",
+        "metadata.app": "fluent-pipeline-test"
+    },
+    "logId": "bill-cycle-1"
   },
   {
-    "\"app.kubernetes.io/part-of": "cm\"",
-    "container": "fake-container",
-    "hostname": "fake-fluent",
-    "nodename": "fake-node",
-    "labels": {
-      "metadata.app": "fluent-pipeline-test",
-      "metadata.app.kubernetes.io/version": "0.1.0"
-    },
-    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "source_level": "INFO",
+    "original_log": "[2024-07-20T11:51:32.234] [INFO] [\"app.kubernetes.io/part-of=cm\"] [logId=bill-cycle-2] it is example of bill cycle log message",
     "namespace": "fake-namespace",
+    "date": "2024-07-20T11:51:32.234",
     "time": "2024-07-20T11:51:32.234007468Z",
-    "level": "INFO",
-    "logId": "bill-cycle-2",
-    "nc_bill_cycle_label": "true",
-    "log": "[2024-07-20T11:51:32.234] [INFO] [\"app.kubernetes.io/part-of=cm\"] [logId=bill-cycle-2] it is example of bill cycle log message"
+    "nodename": "fake-node",
+    "hostname": "fake-fluent",
+    "short_message": "[\"app.kubernetes.io/part-of=cm\"] [logId=bill-cycle-2] it is example of bill cycle log message",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "parsed": "true",
+    "container": "fake-container",
+    "level": "info",
+    "labels": {
+        "metadata.app.kubernetes.io/version": "0.1.0",
+        "metadata.app": "fluent-pipeline-test"
+    },
+    "logId": "bill-cycle-2"
   },
   {
-    "\"app.kubernetes.io/part-of": "nrm\"",
-    "container": "fake-container",
-    "hostname": "fake-fluent",
+    "source_level": "WARN",
+    "original_log": "[2024-07-20T11:51:33.234] [WARN] [logId=bill-cycle-3] [\"app.kubernetes.io/part-of=nrm\"] it is example of bill cycle log message",
+    "namespace": "fake-namespace",
+    "date": "2024-07-20T11:51:33.234",
+    "time": "2024-07-20T11:51:33.234007468Z",
     "nodename": "fake-node",
+    "hostname": "fake-fluent",
+    "short_message": "[logId=bill-cycle-3] [\"app.kubernetes.io/part-of=nrm\"] it is example of bill cycle log message",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "parsed": "true",
+    "container": "fake-container",
+    "level": "warning",
     "labels": {
-      "metadata.app": "fluent-pipeline-test",
-      "metadata.app.kubernetes.io/version": "0.1.0"
+        "metadata.app.kubernetes.io/version": "0.1.0",
+        "metadata.app": "fluent-pipeline-test"
     },
+    "logId": "bill-cycle-3"
+  },
+  {
+    "app.kubernetes.io/part-of": "nrm",
     "pod": "fake-fluent-577d48c6cb-4gfmp",
     "namespace": "fake-namespace",
-    "time": "2024-07-20T11:51:33.234007468Z",
+    "source_level": "WARN",
+    "container": "fake-container",
+    "logId": "bill-cycle-4",
+    "hostname": "fake-fluent",
+    "parsed": "true",
+    "labels": {
+        "metadata.app": "fluent-pipeline-test",
+        "metadata.app.kubernetes.io/version": "0.1.0"
+    },
+    "nodename": "fake-node",
     "level": "warning",
-    "logId": "bill-cycle-3",
-    "nc_bill_cycle_label": "true",
-    "log": "[2024-07-20T11:51:33.234] [WARN] [logId=bill-cycle-3] [\"app.kubernetes.io/part-of=nrm\"] it is example of bill cycle log message"
+    "short_message": "[logId=bill-cycle-4] [app.kubernetes.io/part-of=nrm] it is example of bill cycle log message but without quotes inside the label part-of",
+    "date": "2024-07-20T11:51:34.234",
+    "original_log": "[2024-07-20T11:51:34.234] [WARN] [logId=bill-cycle-4] [app.kubernetes.io/part-of=nrm] it is example of bill cycle log message but without quotes inside the label part-of",
+    "time": "2024-07-20T11:51:34.234007468Z"
   }
 ]

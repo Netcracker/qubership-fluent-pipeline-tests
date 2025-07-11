@@ -31,7 +31,7 @@
     "host": "master-1",
     "ident": "kubelet",
     "pid": "126456",
-    "message": "E0619 11:28:47.937640  126456 pod_workers.go:1298] \"Error syncing pod, skipping\" err=\"failed to \\\"StartContainer\\\" for \\\"nc-dbaas-clickhouse-adapter\\\" with CrashLoopBackOff: \\\"back-off 5m0s restarting failed container=nc-dbaas-clickhouse-adapter pod=nc-dbaas-clickhouse-adapter-7d46f8df76-ssj56_clickhouse-jyya(7f04b853-bad1-4385-9048-507e2f288846)\\\"\" pod=\"clickhouse-jyya/nc-dbaas-clickhouse-adapter-7d46f8df76-ssj56\" podUID=\"7f04b853-bad1-4385-9048-507e2f288846\"  logId=\"syslog-4\"",
+    "message": "E0619 11:28:47.937640  126456 pod_workers.go:1298] \"Error syncing pod, skipping\" err=\"failed to \\\"StartContainer\\\" for \\\"nc-dbaas-clickhouse-adapter\\\" with CrashLoopBackOff: \\\"back-off 5m0s restarting failed container=nc-dbaas-clickhouse-adapter pod=nc-dbaas-clickhouse-adapter-7d46f8df76-ssj56_clickhouse-jyya(00000000-0000-0000-0000-000000000000)\\\"\" pod=\"clickhouse-jyya/nc-dbaas-clickhouse-adapter-7d46f8df76-ssj56\" podUID=\"00000000-0000-0000-0000-000000000000\"  logId=\"syslog-4\"",
     "hostname": "fake-fluent",
     "kubernetes_host": "fake-node"
   },
@@ -49,7 +49,7 @@
     "host": "master-1",
     "ident": "kubelet",
     "pid": "126456",
-    "message": "E0619 11:28:51.938462  126456 pod_workers.go:1298] \"Error syncing pod, skipping\" err=\"failed to \\\"StartContainer\\\" for \\\"esc-collector-service\\\" with ImagePullBackOff: \\\"Back-off pulling image \\\\\\\"docker.io/cloud-diagnostic-toolset/esc-collector-service-assembly-bugfix-cpdev-93288:build2\\\\\\\"\\\"\" pod=\"profiler/esc-collector-service-5d557698f-pvmhx\" podUID=\"2a9ce3e6-2088-4ba2-9a03-d85a4ab134f8\" logId=\"syslog-6\"",
+    "message": "E0619 11:28:51.938462  126456 pod_workers.go:1298] \"Error syncing pod, skipping\" err=\"failed to \\\"StartContainer\\\" for \\\"esc-collector-service\\\" with ImagePullBackOff: \\\"Back-off pulling image \\\\\\\"docker.io/cloud-diagnostic-toolset/esc-collector-service-assembly-bugfix-cpdev-93288:build2\\\\\\\"\\\"\" pod=\"profiler/esc-collector-service-5d557698f-pvmhx\" podUID=\"00000000-0000-0000-0000-000000000000\" logId=\"syslog-6\"",
     "hostname": "fake-fluent",
     "kubernetes_host": "fake-node"
   }
