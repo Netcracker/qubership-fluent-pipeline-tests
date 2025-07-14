@@ -1,15 +1,14 @@
 #!/bin/sh
 
 # For local tests
-FLUENTBIT_IMAGE="fluent/fluent-bit:3.2.2"
-FLUENTD_IMAGE="ghcr.io/netcracker/qubership-fluentd:main"
-FLUENT_PIPELINE_REPLACER_IMAGE="ghcr.io/netcracker/qubership-fluent-pipeline-tests:main"
+#FLUENTBIT_IMAGE="fluent/fluent-bit:3.2.2"
+#FLUENTD_IMAGE="ghcr.io/netcracker/qubership-fluentd:main"
+#FLUENT_PIPELINE_REPLACER_IMAGE="ghcr.io/netcracker/qubership-fluent-pipeline-tests:main"
 
-INT_TESTS_IGNORE="nginx-ingress.log.json,airflow.log.json"
+#INT_TESTS_IGNORE="nginx-ingress.log.json,airflow.log.json"
 #TEST_HOME_PATH="/mnt/c/Repositories/Git/logging/logging-operator"
-TEST_HOME_PATH="/home/beauline/test_fluent"
 #TEST_HOME_PATH="/builds/${CI_PROJECT_PATH}"
-TEST_CONTENT_PATH="tests"
+#TEST_CONTENT_PATH="tests"
 
 # Use sed to copy data from test data in files that fluent should read
 add_lines() {
