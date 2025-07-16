@@ -39,18 +39,18 @@ run_fluentd_test_logic() {
 
   # Grant permissions
   chmod -R ugo+rw ${TEST_CONTENT_PATH}/
-  chmod -R u+x fluent-pipeline-test/scripts
+  #chmod -R u+x fluent-pipeline-test/scripts
   chmod -R ugo+r \
-    fluent-pipeline-test/testdata/output/fluentd/ \
-    controllers/fluentd/fluentd.configmap/
+    ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/output/fluentd/ \
+    ${TEST_HOME_PATH}/controllers/fluentd/fluentd.configmap/
 
-  # prepare fluent bit configs
+  # prepare fluentd configs
   echo "=> Prepare FluentD configurations"
 
   docker run --rm --name fluent-config-replacer \
     -v ${TEST_HOME_PATH}/controllers/fluentd/fluentd.configmap/:/config-templates.d:ro \
-    -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/config/:/configuration.d:rw \
-    -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/logs/:/testdata:rw \
+    -v ${TEST_CONTENT_PATH}/config/:/configuration.d:rw \
+    -v ${TEST_CONTENT_PATH}/logs/:/testdata:rw \
     -v ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/assets/fluentd.yaml:/assets/fluentd.yaml:ro \
     -v ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/input/:/logs:rw \
     ${FLUENT_PIPELINE_REPLACER_IMAGE} \
@@ -69,20 +69,20 @@ run_fluentd_test_logic() {
   docker run --privileged -d --name ${FLD_DOCKER_NAME} \
     -e HOSTNAME=fake-fluent \
     -e K8S_NODE_NAME=fake-node \
-    -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/config/:/fluentd/etc \
-    -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/logs/var/log/:/var/log:rw \
-    -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/output/:/fluentd-output:rw \
+    -v ${TEST_CONTENT_PATH}/config/:/fluentd/etc \
+    -v ${TEST_CONTENT_PATH}/logs/var/log/:/var/log:rw \
+    -v ${TEST_CONTENT_PATH}/output/:/fluentd-output:rw \
     ${FLUENTD_IMAGE}
 
   echo "=> Waiting for FluentD start (${CFG_TIMEOUT} seconds)"
   sleep ${CFG_TIMEOUT}
 
   echo "=> Start print prepared test data in logs"
-  add_lines fluent-pipeline-test/testdata/input/kubernetes/audit/audit.log ${TEST_CONTENT_PATH}/logs/var/log/kubernetes/audit/audit.log
-  add_lines fluent-pipeline-test/testdata/input/audit/audit.log ${TEST_CONTENT_PATH}/logs/var/log/audit/audit.log
-  add_lines fluent-pipeline-test/testdata/input/system/syslog ${TEST_CONTENT_PATH}/logs/var/log/syslog
-  add_lines fluent-pipeline-test/testdata/input/system/messages ${TEST_CONTENT_PATH}/logs/var/log/messages
-  add_lines fluent-pipeline-test/testdata/input/system/journal ${TEST_CONTENT_PATH}/logs/var/log/journal
+  add_lines ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/input/kubernetes/audit/audit.log ${TEST_CONTENT_PATH}/logs/var/log/kubernetes/audit/audit.log
+  add_lines ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/input/audit/audit.log ${TEST_CONTENT_PATH}/logs/var/log/audit/audit.log
+  add_lines ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/input/system/syslog ${TEST_CONTENT_PATH}/logs/var/log/syslog
+  add_lines ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/input/system/messages ${TEST_CONTENT_PATH}/logs/var/log/messages
+  add_lines ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/input/system/journal ${TEST_CONTENT_PATH}/logs/var/log/journal
 
   echo "=> Waiting until FluentD process all logs (${PARSE_TIMEOUT} seconds)"
   sleep ${PARSE_TIMEOUT}
@@ -93,7 +93,7 @@ run_fluentd_test_logic() {
 
   echo "=> Run the docker container to analyze FluentD parsed logs and compare with expected data"
   docker run --rm --name fluent-pipeline-test \
-    -v ${TEST_HOME_PATH}/${TEST_CONTENT_PATH}/output/:/output-logs/actual:ro \
+    -v ${TEST_CONTENT_PATH}/output/:/output-logs/actual:ro \
     -v ${TEST_HOME_PATH}/fluent-pipeline-test/testdata/output/fluentd/:/output-logs/expected:ro \
     ${FLUENT_PIPELINE_REPLACER_IMAGE} \
     -stage test \
