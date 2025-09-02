@@ -1,0 +1,13 @@
+[
+  {
+    "logId": "os-audit-1",
+    "tag": "/var/log/audit/audit.log",
+    "hostname": "fake-fluent",
+    "nodename": "fake-node",
+    "level": "info",
+    "level_unknown": "true",
+    "log": "apparmor=\"DENIED\" operation=\"ptrace\" profile=\"cri-containerd.apparmor.d\" pid=106437 comm=\"node_exporter\" requested_mask=\"read\" denied_mask=\"read\" peer=\"unconfined\" logId=\"os-audit-1\"",
+    "nc_audit_label": "true",
+    "type": "AVC"
+  }
+]

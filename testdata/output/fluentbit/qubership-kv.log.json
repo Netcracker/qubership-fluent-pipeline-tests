@@ -1,0 +1,117 @@
+[
+  {
+    "class": "app.Main",
+    "container": "fake-container",
+    "date": "2024-03-15T08:12:33.456Z",
+    "hostname": "fake-fluent",
+    "labels": {
+        "metadata.app": "fluent-pipeline-test",
+        "metadata.app.kubernetes.io/version": "0.1.0"
+    },
+    "level": "err",
+    "logId": "qubership-kv-1",
+    "namespace": "fake-namespace",
+    "nodename": "fake-node",
+    "original_log": "[2024-03-15T08:12:33.456Z] [ERROR] [request_id=8a7b6c5d-4e3f] [tenant_id=t1] [thread=main] [class=app.Main] [logId=qubership-kv-1] NullPointerException\n    at com.example.app.Main.processRequest(Main.java:42)\n    at com.example.app.Main.main(Main.java:17)\nCaused by: java.lang.NullPointerException: Cannot invoke \"String.length()\" because \"input\" is null\n    at com.example.app.Utils.validateInput(Utils.java:89)",
+    "parsed": "true",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "request_id": "8a7b6c5d-4e3f",
+    "short_message": "NullPointerException\n    at com.example.app.Main.processRequest(Main.java:42)\n    at com.example.app.Main.main(Main.java:17)\nCaused by: java.lang.NullPointerException: Cannot invoke \"String.length()\" because \"input\" is null\n    at com.example.app.Utils.validateInput(Utils.java:89)",
+    "source_level": "ERROR",
+    "tenant_id": "t1",
+    "thread": "main",
+    "time": "2024-03-15T08:12:33.456007468Z"
+  },
+  {
+    "class": "o.apa.kaf.cli.NetworkClient",
+    "container": "fake-container",
+    "date": "2024-03-15T09:15:23.200Z",
+    "hostname": "fake-fluent",
+    "labels": {
+        "metadata.app": "fluent-pipeline-test",
+        "metadata.app.kubernetes.io/version": "0.1.0"
+    },
+    "level": "debug",
+    "logId": "qubership-kv-2",
+    "namespace": "fake-namespace",
+    "nodename": "fake-node",
+    "original_log": "[2024-03-15T09:15:23.200Z] [DEBUG] [request_id=5f6e7d8c-9a0b] [tenant_id=-] [thread=Worker-5] [class=o.apa.kaf.cli.NetworkClient] [logId=qubership-kv-2] Sending payload: size=2KB",
+    "parsed": "true",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "request_id": "5f6e7d8c-9a0b",
+    "short_message": "Sending payload: size=2KB",
+    "source_level": "DEBUG",
+    "tenant_id": "-",
+    "thread": "Worker-5",
+    "time": "2024-03-15T09:15:23.200008804Z"
+  },
+  {
+    "class": "service.Payment",
+    "container": "fake-container",
+    "date": "2024-03-15T09:15:26.500Z",
+    "hostname": "fake-fluent",
+    "labels": {
+        "metadata.app": "fluent-pipeline-test",
+        "metadata.app.kubernetes.io/version": "0.1.0"
+    },
+    "level": "debug",
+    "logId": "qubership-kv-3",
+    "namespace": "fake-namespace",
+    "nodename": "fake-node",
+    "original_log": "[2024-03-15T09:15:26.500Z] [TRACE] [request_id=0q1w2e3r-4t5y] [tenant_id=a5b6] [thread=AsyncIO-3] [class=service.Payment] [logId=qubership-kv-3] Processing transaction: amount=29.99USD",
+    "parsed": "true",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "request_id": "0q1w2e3r-4t5y",
+    "short_message": "Processing transaction: amount=29.99USD",
+    "source_level": "TRACE",
+    "tenant_id": "a5b6",
+    "thread": "AsyncIO-3",
+    "time": "2024-03-15T09:15:26.500008804Z"
+  },
+  {
+    "class": "util.Config",
+    "container": "fake-container",
+    "date": "2024-03-15T09:15:31.000Z",
+    "hostname": "fake-fluent",
+    "labels": {
+        "metadata.app": "fluent-pipeline-test",
+        "metadata.app.kubernetes.io/version": "0.1.0"
+    },
+    "level": "warning",
+    "logId": "qubership-kv-4",
+    "namespace": "fake-namespace",
+    "nodename": "fake-node",
+    "original_log": "[2024-03-15T09:15:31.000Z] [WARN] [request_id=2k3l4m5n-6o7p] [tenant_id=-] [thread=HTTP-Listener] [class=util.Config] [logId=qubership-kv-4] Deprecated config key used: \"legacy_mode\"",
+    "parsed": "true",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "request_id": "2k3l4m5n-6o7p",
+    "short_message": "Deprecated config key used: \"legacy_mode\"",
+    "source_level": "WARN",
+    "tenant_id": "-",
+    "thread": "HTTP-Listener",
+    "time": "2024-03-15T09:15:31.000008804Z"
+  },
+  {
+    "class": "util.Config",
+    "container": "fake-container",
+    "date": "2024-03-15T10:20:42.345Z",
+    "hostname": "fake-fluent",
+    "labels": {
+        "metadata.app": "fluent-pipeline-test",
+        "metadata.app.kubernetes.io/version": "0.1.0"
+    },
+    "level": "err",
+    "logId": "qubership-kv-5",
+    "namespace": "fake-namespace",
+    "nodename": "fake-node",
+    "original_log": "[2024-03-15T10:20:42.345Z] [ERROR] [request_id=8t9u0v1w-2x3y] [tenant_id=-] [thread=main] [class=util.Config] [logId=qubership-kv-5] Invalid configuration\n    at com.example.util.Config.validate(Config.java:145)\n    at com.example.util.Config.load(Config.java:78)\nCaused by: java.lang.IllegalArgumentException: Port must be between 1 and 65535\n    at com.example.util.Config.parsePort(Config.java:201)",
+    "parsed": "true",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "request_id": "8t9u0v1w-2x3y",
+    "short_message": "Invalid configuration\n    at com.example.util.Config.validate(Config.java:145)\n    at com.example.util.Config.load(Config.java:78)\nCaused by: java.lang.IllegalArgumentException: Port must be between 1 and 65535\n    at com.example.util.Config.parsePort(Config.java:201)",
+    "source_level": "ERROR",
+    "tenant_id": "-",
+    "thread": "main",
+    "time": "2024-03-15T10:20:42.345008804Z"
+  }
+]
