@@ -183,16 +183,16 @@ find fluent-pipeline-test/ -type f -exec dos2unix {} \;
 
 ## Contributing
 
-Please see our [Contributing Guide](?tab=contributing-ov-file) for details on how to contribute to this project.
+Please see our [Contributing Guide](CONTRIBUTING.md) for details on how to contribute to this project.
 
 ## Security
 
-For security issues, please see our [Security Policy](?tab=security-ov-file).
+For security issues, please see our [Security Policy](SECURITY.md).
 
 ## Code of Conduct
 
-This project follows our [Code of Conduct](?tab=coc-ov-file). By participating, you are expected to uphold this code.
+This project follows our [Code of Conduct](CODE-OF-CONDUCT.md). By participating, you are expected to uphold this code.
 
 ## License
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](?tab=Apache-2.0-1-ov-file) file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
