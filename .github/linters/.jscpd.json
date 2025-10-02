@@ -1,0 +1,8 @@
+{
+    "threshold": 2,
+    "ignore": [
+        "**/.git/**",
+        "**/testdata/output/**"
+    ]
+}
+
