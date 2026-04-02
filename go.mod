@@ -5,7 +5,7 @@ go 1.25.0
 require (
 	github.com/Netcracker/qubership-logging-operator v0.0.0-20250124090229-8028b3970db4
 	github.com/Netcracker/qubership-logging-operator/api v0.0.0-20250124090229-8028b3970db4
-	github.com/rodaine/table v1.3.0
+	github.com/rodaine/table v1.3.1
 	k8s.io/apimachinery v0.35.2
 	k8s.io/client-go v0.35.2
 )
