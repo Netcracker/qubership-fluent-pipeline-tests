@@ -1,7 +1,7 @@
 package agent
 
 import (
-	loggingService "github.com/Netcracker/qubership-logging-operator/api/v1alpha1"
+	loggingService "github.com/Netcracker/qubership-logging-operator/api/v1"
 )
 
 type Agent interface {
