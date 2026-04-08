@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	loggingService "github.com/Netcracker/qubership-logging-operator/api/v1alpha1"
+	loggingService "github.com/Netcracker/qubership-logging-operator/api/v1"
 	util "github.com/Netcracker/qubership-logging-operator/controllers/utils"
 
 	agents "github.com/Netcracker/qubership-fluent-pipeline-tests/agent"
