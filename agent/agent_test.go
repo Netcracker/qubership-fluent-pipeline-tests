@@ -17,7 +17,7 @@ func TestFluentbitUpdateCustomConfiguration(t *testing.T) {
 	if got["existing.conf"] != "keep" {
 		t.Fatalf("existing configuration entry was changed")
 	}
-	if got["filter-custom.conf"] == "" || got["output-custom.conf"] == "" {
+	if got["input-custom.conf"] == "" || got["filter-custom.conf"] == "" || got["output-custom.conf"] == "" {
 		t.Fatalf("expected fluentbit custom configuration to be populated, got %#v", got)
 	}
 }

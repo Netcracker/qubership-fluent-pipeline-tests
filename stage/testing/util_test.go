@@ -22,19 +22,34 @@ func (s stubAgent) GetOutputFileName() string {
 }
 
 func TestIgnoreFluentdTimeFunc(t *testing.T) {
-	expected := map[string]interface{}{"fluentd_time": "expected"}
-	actual := map[string]interface{}{"fluentd_time": "actual"}
+	t.Parallel()
 
 	modify := ignoreFluentdTimeFunc("audit.log.json")
+
+	// File is in the ignore list: fluentd_time in expected should be overwritten with the actual value.
+	expected := map[string]interface{}{"fluentd_time": "expected"}
+	actual := map[string]interface{}{"fluentd_time": "actual"}
 	if err := modify(expected, actual, "audit.log.json"); err != nil {
 		t.Fatalf("ignoreFluentdTimeFunc returned error: %v", err)
 	}
 	if expected["fluentd_time"] != "actual" {
 		t.Fatalf("fluentd_time = %v, want %v", expected["fluentd_time"], "actual")
 	}
+
+	// File is NOT in the ignore list: expected should remain unchanged.
+	expected2 := map[string]interface{}{"fluentd_time": "expected"}
+	actual2 := map[string]interface{}{"fluentd_time": "actual"}
+	if err := modify(expected2, actual2, "other.log.json"); err != nil {
+		t.Fatalf("ignoreFluentdTimeFunc returned error: %v", err)
+	}
+	if expected2["fluentd_time"] != "expected" {
+		t.Fatalf("fluentd_time should not be changed for non-ignored file, got %v", expected2["fluentd_time"])
+	}
 }
 
 func TestGetModificationFuncs(t *testing.T) {
+	t.Parallel()
+
 	if got := GetModificationFuncs("fluentd", "audit.log.json"); len(got) != 1 {
 		t.Fatalf("GetModificationFuncs(fluentd) len = %d, want 1", len(got))
 	}
@@ -51,11 +66,11 @@ func TestApplyModificationFuncsStopsOnError(t *testing.T) {
 		map[string]interface{}{},
 		"file.log.json",
 		[]RecordModifyFunc{
-			func(actual, expected map[string]interface{}, file string) error {
+			func(expected, actual map[string]interface{}, file string) error {
 				calls++
 				return wantErr
 			},
-			func(actual, expected map[string]interface{}, file string) error {
+			func(expected, actual map[string]interface{}, file string) error {
 				calls++
 				return nil
 			},
@@ -78,6 +93,8 @@ func TestContains(t *testing.T) {
 	}
 }
 
+// TestTestJSONSuccess cannot run in parallel: testJson resolves paths relative to
+// the working directory, so os.Chdir is required and must not race with other tests.
 func TestTestJSONSuccess(t *testing.T) {
 	dir := t.TempDir()
 	writeFile(t, filepath.Join(dir, "output-logs", "actual", "output.log"), "{\"logId\":\"1\",\"message\":\"ok\"}")
@@ -101,6 +118,7 @@ func TestTestJSONSuccess(t *testing.T) {
 	}
 }
 
+// TestTestJSONDuplicateLogIDFails cannot run in parallel: same reason as TestTestJSONSuccess.
 func TestTestJSONDuplicateLogIDFails(t *testing.T) {
 	dir := t.TempDir()
 	writeFile(t, filepath.Join(dir, "output-logs", "actual", "output.log"), "{\"logId\":\"1\",\"message\":\"ok\"}\n{\"logId\":\"1\",\"message\":\"ok\"}")

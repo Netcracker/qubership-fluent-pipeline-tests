@@ -83,9 +83,9 @@ func TestFillConfigurationTemplatesMissingDirectory(t *testing.T) {
 	}
 }
 
+// TestGetConfigurationAddsAgentSpecificFiles cannot run in parallel because it
+// modifies the package-level sourceConfigPath variable.
 func TestGetConfigurationAddsAgentSpecificFiles(t *testing.T) {
-	t.Parallel()
-
 	dir := t.TempDir()
 	if err := os.WriteFile(filepath.Join(dir, "base.conf"), []byte("static-content"), 0o600); err != nil {
 		t.Fatalf("write template: %v", err)

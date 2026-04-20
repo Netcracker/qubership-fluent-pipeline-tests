@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-type RecordModifyFunc func(actual, expected map[string]interface{}, file string) error
+type RecordModifyFunc func(expected, actual map[string]interface{}, file string) error
 
 func ignoreFluentdTimeFunc(ignoreFluentdTimeFiles string) RecordModifyFunc {
 	ignoreFiles := strings.Split(ignoreFluentdTimeFiles, ",")
