@@ -17,9 +17,25 @@ jobs:
   apply-filter:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      with:
+        persist-credentials: false
+    - name: Check if actor is restricted
+      id: config
+      env:
+        ACTOR: ${{ github.actor }}
+      run: |
+        restricted=$(python3 -c "
+        import yaml, os
+        with open('.github/config/build-config.yaml') as f:
+            config = yaml.safe_load(f)
+        actors = config.get('restricted-actors', [])
+        print('true' if os.environ['ACTOR'] in actors else 'false')
+        ")
+        echo "is-restricted=$restricted" >> "$GITHUB_OUTPUT"
     - name: Scan issue or pull request for profanity
-      # Conditionally run the step if the actor isn't a bot
-      if: ${{ github.actor != 'dependabot[bot]' && github.actor != 'github-actions[bot]' }}
+      if: steps.config.outputs.is-restricted != 'true'
       uses: IEvangelist/profanity-filter@10.0
       id: profanity-filter
       with:
