@@ -8,6 +8,26 @@ import (
 	"github.com/Netcracker/qubership-fluent-pipeline-tests/agent"
 )
 
+func assertInitAgentResult(t *testing.T, input string, got any, ok bool, wantType any, wantValid bool) {
+	t.Helper()
+
+	if ok != wantValid {
+		t.Fatalf("initAgent(%q) valid = %v, want %v", input, ok, wantValid)
+	}
+	if !wantValid {
+		if got != nil {
+			t.Fatalf("initAgent(%q) agent = %T, want nil", input, got)
+		}
+		return
+	}
+	if got == nil {
+		t.Fatalf("initAgent(%q) agent is nil", input)
+	}
+	if reflect.TypeOf(got) != reflect.TypeOf(wantType) {
+		t.Fatalf("initAgent(%q) type = %T, want %T", input, got, wantType)
+	}
+}
+
 func TestInitAgent(t *testing.T) {
 	t.Parallel()
 
@@ -28,21 +48,7 @@ func TestInitAgent(t *testing.T) {
 			t.Parallel()
 
 			got, ok := initAgent(tt.input)
-			if ok != tt.wantValid {
-				t.Fatalf("initAgent(%q) valid = %v, want %v", tt.input, ok, tt.wantValid)
-			}
-			if !tt.wantValid {
-				if got != nil {
-					t.Fatalf("initAgent(%q) agent = %T, want nil", tt.input, got)
-				}
-				return
-			}
-			if got == nil {
-				t.Fatalf("initAgent(%q) agent is nil", tt.input)
-			}
-			if reflect.TypeOf(got) != reflect.TypeOf(tt.wantType) {
-				t.Fatalf("initAgent(%q) type = %T, want %T", tt.input, got, tt.wantType)
-			}
+			assertInitAgentResult(t, tt.input, got, ok, tt.wantType, tt.wantValid)
 		})
 	}
 }
