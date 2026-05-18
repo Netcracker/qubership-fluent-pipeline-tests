@@ -3,8 +3,8 @@ module github.com/Netcracker/qubership-fluent-pipeline-tests
 go 1.25.0
 
 require (
-	github.com/Netcracker/qubership-logging-operator v0.0.0-20260506122032-0cd9e6ebd21c
-	github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260506122032-0cd9e6ebd21c
+	github.com/Netcracker/qubership-logging-operator v0.0.0-20260515071328-d77f45d7909c
+	github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260515071328-d77f45d7909c
 	github.com/rodaine/table v1.3.1
 	k8s.io/apimachinery v0.35.3
 	k8s.io/client-go v0.35.3
