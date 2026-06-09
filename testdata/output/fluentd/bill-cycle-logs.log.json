@@ -1,0 +1,53 @@
+[
+  {
+    "\"app.qubership.org/application": "cm\"",
+    "container": "fake-container",
+    "hostname": "fake-fluent",
+    "labels": "{\"app\":\"fluent-pipeline-test\", \"app.kubernetes.io_version\":\"0.1.0\"}",
+    "kubernetes_host": "fake-node",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "namespace": "fake-namespace",
+    "time": "2024-07-20T11:51:31.234007468Z",
+    "fluentd_time": "2024-07-20T11:51:31.234Z",
+    "level": "INFO",
+    "logId": "bill-cycle-1",
+    "log": "[2024-07-20T11:51:31.234] [INFO] [\"app.qubership.org/application=app\"] [logId=bill-cycle-1] it is example of bill cycle log message",
+    "level_unknown": null,
+    "nc_audit_label": null,
+    "nc_bill_cycle_label": "true"
+  },
+  {
+    "\"app.kubernetes.io/part-of": "cm\"",
+    "container": "fake-container",
+    "hostname": "fake-fluent",
+    "labels": "{\"app\":\"fluent-pipeline-test\", \"app.kubernetes.io_version\":\"0.1.0\"}",
+    "kubernetes_host": "fake-node",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "namespace": "fake-namespace",
+    "time": "2024-07-20T11:51:32.234007468Z",
+    "fluentd_time": "2024-07-20T11:51:32.234Z",
+    "level": "INFO",
+    "logId": "bill-cycle-2",
+    "log": "[2024-07-20T11:51:32.234] [INFO] [\"app.kubernetes.io/part-of=app\"] [logId=bill-cycle-2] it is example of bill cycle log message",
+    "level_unknown": null,
+    "nc_audit_label": null,
+    "nc_bill_cycle_label": "true"
+  },
+  {
+    "\"app.kubernetes.io/part-of": "app\"",
+    "container": "fake-container",
+    "hostname": "fake-fluent",
+    "labels": "{\"app\":\"fluent-pipeline-test\", \"app.kubernetes.io_version\":\"0.1.0\"}",
+    "kubernetes_host": "fake-node",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "namespace": "fake-namespace",
+    "time": "2024-07-20T11:51:33.234007468Z",
+    "fluentd_time": "2024-07-20T11:51:33.234Z",
+    "level": "WARN",
+    "logId": "bill-cycle-3",
+    "log": "[2024-07-20T11:51:33.234] [WARN] [logId=bill-cycle-3] [\"app.kubernetes.io/part-of=app\"] it is example of bill cycle log message",
+    "level_unknown": null,
+    "nc_audit_label": null,
+    "nc_bill_cycle_label": "true"
+  }
+]

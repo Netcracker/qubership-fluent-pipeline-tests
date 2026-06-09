@@ -1,0 +1,44 @@
+[
+{
+    "container": "fake-container",
+    "date": "0417 09:54:26.268079",
+    "file": "reflector.go:424",
+    "hostname": "fake-fluent",
+    "labels": {
+        "metadata.app": "fluent-pipeline-test",
+        "metadata.app.kubernetes.io/version": "0.1.0"
+    },
+    "level": "warning",
+    "logId": "klog-1",
+    "namespace": "fake-namespace",
+    "nodename": "fake-node",
+    "original_log": "W0417 09:54:26.268079       7 reflector.go:424] [logId=klog-1] pkg/mod/k8s.io/client-go@v0.26.11/tools/cache/reflector.go:169: failed to list *unstructured.Unstructured: failed to list applications: applications.argoproj.io is forbidden: User \"system:serviceaccount:argocd:argocd-notifications-controller\" cannot list resource \"applications\" in API group \"argoproj.io\" at the cluster scope",
+    "parsed": "true",
+    "pid": "7",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "short_message": "[logId=klog-1] pkg/mod/k8s.io/client-go@v0.26.11/tools/cache/reflector.go:169: failed to list *unstructured.Unstructured: failed to list applications: applications.argoproj.io is forbidden: User \"system:serviceaccount:argocd:argocd-notifications-controller\" cannot list resource \"applications\" in API group \"argoproj.io\" at the cluster scope",
+    "source_level": "W",
+    "time": "2023-04-17T09:54:26.268079468Z"
+},
+{
+    "container": "fake-container",
+    "date": "0614 08:33:57.629400",
+    "file": "controller.go:1213",
+    "hostname": "fake-fluent",
+    "labels": {
+        "metadata.app": "fluent-pipeline-test",
+        "metadata.app.kubernetes.io/version": "0.1.0"
+    },
+    "level": "warning",
+    "logId": "klog-2",
+    "namespace": "fake-namespace",
+    "nodename": "fake-node",
+    "original_log": "W0614 08:33:57.629400       7 controller.go:1213] [logId=klog-2] Service \\\"dev-profiler-opensearch/esc-ui-service\\\" does not have any active Endpoint.",
+    "parsed": "true",
+    "pid": "7",
+    "pod": "fake-fluent-577d48c6cb-4gfmp",
+    "short_message": "[logId=klog-2] Service \\\"dev-profiler-opensearch/esc-ui-service\\\" does not have any active Endpoint.",
+    "source_level": "W",
+    "time": "2023-06-14T08:33:57.629400468Z"
+}
+]
