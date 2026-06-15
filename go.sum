@@ -14,6 +14,8 @@ github.com/Netcracker/qubership-logging-operator v0.0.0-20260515071328-d77f45d79
 github.com/Netcracker/qubership-logging-operator v0.0.0-20260515071328-d77f45d7909c/go.mod h1:IWLHqi3we0pluYuoj4RDe5OPQJYa/DsVEayAuEJDlqs=
 github.com/Netcracker/qubership-logging-operator v0.0.0-20260525133001-2521973f7169 h1:7xEjHrKcHZ3TVQ/RPaHNUzmu/haK34Nr/dcYtMdHtSU=
 github.com/Netcracker/qubership-logging-operator v0.0.0-20260525133001-2521973f7169/go.mod h1:TWjKsNMjmXtC4SUgEe9f9KN3KcK4Kwn3juqm94azyUo=
+github.com/Netcracker/qubership-logging-operator v0.0.0-20260610085513-4c0a44b5aa29 h1:qJidF7PBiLDRnbn3bc3QfgLeFckF5TsvYHxp9js0HY8=
+github.com/Netcracker/qubership-logging-operator v0.0.0-20260610085513-4c0a44b5aa29/go.mod h1:ob0uMCr3nwqdzbQWaXJ1SxzufsX6y0TFVIkSRqD4r+c=
 github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260408085656-3929ad3e4de3 h1:AMSylzDFGhHTp2IlLgh5Bb3kB8i54P6fAYGXw54EseE=
 github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260408085656-3929ad3e4de3/go.mod h1:Mzl7n1OT+VxaDdBvATAGpCCmHNln+TShMZBfDNRQ8XI=
 github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260506122032-0cd9e6ebd21c h1:1yzhu5DU1xgAuL6A3TRFe/FPjadGdDN2JBdSBlBhn/4=
@@ -22,6 +24,8 @@ github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260515071328-d77f4
 github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260515071328-d77f45d7909c/go.mod h1:7O47kqXxVvH7tCh7nOdWF8RPZr4S0zrizSCmCFTaLLw=
 github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260525133001-2521973f7169 h1:UgHF9x4pqKOpngg3x9ZBKZTxYSELWkh8QMiOQTGp2Ns=
 github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260525133001-2521973f7169/go.mod h1:q4Fr0w7Haf+fxdU5QCFd6GZ0QbkQT1XQ/4VwnAW9Tb4=
+github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260610085513-4c0a44b5aa29 h1:em+tcKtnztmCLSEivM2FQsjVL3rUGtaGnQy1TEvXWu8=
+github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260610085513-4c0a44b5aa29/go.mod h1:q4Fr0w7Haf+fxdU5QCFd6GZ0QbkQT1XQ/4VwnAW9Tb4=
 github.com/beorn7/perks v1.0.1 h1:VlbKKnNfV8bJzeqoa4cOKqO6bYr3WgKZxO8Z16+hsOM=
 github.com/beorn7/perks v1.0.1/go.mod h1:G2ZrVWU2WbWT9wwq4/hrbKbnv/1ERSJQ0ibhJ6rlkpw=
 github.com/cespare/xxhash/v2 v2.3.0 h1:UL815xU9SqsFlibzuggzjXhog7bL6oX9BbNZnL2UFvs=
