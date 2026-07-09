@@ -1,7 +1,7 @@
 module github.com/Netcracker/qubership-fluent-pipeline-tests
 
 go 1.25.0
-toolchain go1.26.4
+toolchain go1.26.5
 
 require (
 	github.com/Netcracker/qubership-logging-operator v0.0.0-20260630144601-8f5fc94bb19a
