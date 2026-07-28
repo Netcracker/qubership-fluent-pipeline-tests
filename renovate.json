@@ -1,7 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
+    "github>Netcracker/renovate-config:base",
+    "github>Netcracker/renovate-config:github-actions",
+    "github>Netcracker/renovate-config:go",
+    "github>Netcracker/renovate-config:netcracker-dependencies",
     "schedule:weekly"
   ],
   "labels": [
@@ -10,54 +13,15 @@
   "prConcurrentLimit": 20,
   "packageRules": [
     {
-      "description": "Netcracker GitHub Actions and reusable workflows",
-      "matchManagers": ["github-actions"],
-      "matchPackageNames": ["Netcracker/**", "netcracker/**"],
-      "groupName": "netcracker-actions",
-      "separateMajorMinor": false
-    },
-    {
-      "description": "All other GitHub Actions",
-      "matchManagers": ["github-actions"],
-      "matchPackageNames": ["!Netcracker/**", "!netcracker/**"],
-      "groupName": "github-actions"
-    },
-    {
-      "description": "Netcracker Docker images",
-      "matchManagers": ["dockerfile"],
-      "matchPackageNames": ["ghcr.io/netcracker/**"],
-      "groupName": "netcracker-docker",
-      "separateMajorMinor": false
-    },
-    {
       "description": "All other third-party Docker base images",
       "matchManagers": ["dockerfile"],
-      "matchPackageNames": ["!ghcr.io/netcracker/**"],
-      "groupName": "docker-deps"
-    },
-    {
-      "description": "Kubernetes-related Go modules (k8s.io and sigs.k8s.io)",
-      "matchManagers": ["gomod"],
-      "matchPackageNames": ["k8s.io/**", "sigs.k8s.io/**"],
-      "groupName": "k8s-go"
-    },
-    {
-      "description": "Netcracker Go modules",
-      "matchManagers": ["gomod"],
-      "matchPackageNames": ["github.com/Netcracker/**", "github.com/netcracker/**"],
-      "groupName": "netcracker-go",
-      "separateMajorMinor": false
-    },
-    {
-      "description": "All other Go dependencies",
-      "matchManagers": ["gomod"],
       "matchPackageNames": [
-        "!k8s.io/**",
-        "!sigs.k8s.io/**",
-        "!github.com/Netcracker/**",
-        "!github.com/netcracker/**"
+        "!ghcr.io/netcracker/**",
+        "!ghcr.io/Netcracker/**",
+        "!netcracker/**",
+        "!Netcracker/**"
       ],
-      "groupName": "go-deps"
+      "groupName": "docker-deps"
     }
   ]
 }
