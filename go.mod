@@ -5,8 +5,8 @@ go 1.26.0
 toolchain go1.26.6
 
 require (
-	github.com/Netcracker/qubership-logging-operator v0.0.0-20260814094028-8912463adc4f
-	github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260814094028-8912463adc4f
+	github.com/Netcracker/qubership-logging-operator v0.0.0-20260820124933-c0e364a249d7
+	github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260820124933-c0e364a249d7
 	github.com/rodaine/table v1.3.1
 	k8s.io/apimachinery v0.36.3
 	k8s.io/client-go v0.36.3
