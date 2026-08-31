@@ -5,7 +5,7 @@ go 1.26.0
 toolchain go1.27.0
 
 require (
-	github.com/Netcracker/qubership-logging-operator v0.0.0-20260820124933-c0e364a249d7
+	github.com/Netcracker/qubership-logging-operator v0.0.0-20260831181111-da104f3d1520
 	github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260820124933-c0e364a249d7
 	github.com/rodaine/table v1.3.1
 	k8s.io/apimachinery v0.36.3
@@ -37,6 +37,7 @@ require (
 	github.com/go-openapi/swag/typeutils v0.26.1 // indirect
 	github.com/go-openapi/swag/yamlutils v0.26.1 // indirect
 	github.com/google/gnostic-models v0.7.1 // indirect
+	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/huandu/xstrings v1.5.0 // indirect
 	github.com/imdario/mergo v0.3.16 // indirect

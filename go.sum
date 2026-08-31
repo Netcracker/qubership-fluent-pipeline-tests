@@ -30,6 +30,8 @@ github.com/Netcracker/qubership-logging-operator v0.0.0-20260814094028-8912463ad
 github.com/Netcracker/qubership-logging-operator v0.0.0-20260814094028-8912463adc4f/go.mod h1:gmKOS7B1nDrH9K43F4LOPji7rPCdWB/7qXwYLbMiHn8=
 github.com/Netcracker/qubership-logging-operator v0.0.0-20260820124933-c0e364a249d7 h1:vitgwjDuY9wAkaUAZSRKSIKBRFaCqTDFZnyWtwaDfkE=
 github.com/Netcracker/qubership-logging-operator v0.0.0-20260820124933-c0e364a249d7/go.mod h1:rUJP5H6Abm8XYkns2D/CHphjaFD8PxaDEYFY0PPs8z0=
+github.com/Netcracker/qubership-logging-operator v0.0.0-20260831181111-da104f3d1520 h1:JbyU8p8vdL79w154yT22XQp26Cbl7UMaYVTeQIWxbEY=
+github.com/Netcracker/qubership-logging-operator v0.0.0-20260831181111-da104f3d1520/go.mod h1:FBiI+QsgNeJLeuR8ILNvNBaCNISkzdg3tLQh8ZbZyUA=
 github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260408085656-3929ad3e4de3 h1:AMSylzDFGhHTp2IlLgh5Bb3kB8i54P6fAYGXw54EseE=
 github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260408085656-3929ad3e4de3/go.mod h1:Mzl7n1OT+VxaDdBvATAGpCCmHNln+TShMZBfDNRQ8XI=
 github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260506122032-0cd9e6ebd21c h1:1yzhu5DU1xgAuL6A3TRFe/FPjadGdDN2JBdSBlBhn/4=
