@@ -6,10 +6,10 @@ github.com/Masterminds/semver/v3 v3.4.0 h1:Zog+i5UMtVoCU8oKka5P7i9q9HgrJeGzI9SA1
 github.com/Masterminds/semver/v3 v3.4.0/go.mod h1:4V+yj/TJE1HU9XfppCwVMZq3I84lprf4nC11bSS5beM=
 github.com/Masterminds/sprig v2.22.0+incompatible h1:z4yfnGrZ7netVz+0EDJ0Wi+5VZCSYp4Z0m2dk6cEM60=
 github.com/Masterminds/sprig v2.22.0+incompatible/go.mod h1:y6hNFY5UBTIWBxnzTeuNhlNS5hqE0NB0E6fgfo2Br3o=
-github.com/Netcracker/qubership-logging-operator v0.0.0-20260916121153-f0ab9bd84f77 h1:QFE77SNpTLlsPO1v1dNkZZInaKFL4we2CFHCBR4WcBE=
-github.com/Netcracker/qubership-logging-operator v0.0.0-20260916121153-f0ab9bd84f77/go.mod h1:4XOCufiKkX0PIlTORR9dsbqIWJbZWLG8uwPk5/cc1Ek=
-github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260916121153-f0ab9bd84f77 h1:llbzSTP4nwwExULDUk8zlQzd4AZ9aGBN1/tyvH7+bEI=
-github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260916121153-f0ab9bd84f77/go.mod h1:1jt32H6GDLHfrHjpEawAdppFOvVgpjkgYBhI/iGvN9s=
+github.com/Netcracker/qubership-logging-operator v0.0.0-20260921014710-5f206ac72180 h1:RprQLumw1NWI0gXob4iXlqWd74aWpwqW8ZwDAXsrKfY=
+github.com/Netcracker/qubership-logging-operator v0.0.0-20260921014710-5f206ac72180/go.mod h1:d2kvOHwbfn36g4n1o/W6Aeb5715tFTkydJzrzt/43tk=
+github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260921014710-5f206ac72180 h1:kz+vDb2YZZg6W1msGmWdssm1OCC+Txq7xXSoYODRpWE=
+github.com/Netcracker/qubership-logging-operator/api v0.0.0-20260921014710-5f206ac72180/go.mod h1:1jt32H6GDLHfrHjpEawAdppFOvVgpjkgYBhI/iGvN9s=
 github.com/beorn7/perks v1.0.1 h1:VlbKKnNfV8bJzeqoa4cOKqO6bYr3WgKZxO8Z16+hsOM=
 github.com/beorn7/perks v1.0.1/go.mod h1:G2ZrVWU2WbWT9wwq4/hrbKbnv/1ERSJQ0ibhJ6rlkpw=
 github.com/cespare/xxhash/v2 v2.3.0 h1:UL815xU9SqsFlibzuggzjXhog7bL6oX9BbNZnL2UFvs=
