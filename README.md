@@ -1,5 +1,9 @@
 # Qubership Fluent Pipeline Tests
 
+**This repository is archived.** The Fluent pipeline test suite lives in
+[qubership-logging-operator](https://github.com/Netcracker/qubership-logging-operator), under
+[`test/fluent-pipeline`](https://github.com/Netcracker/qubership-logging-operator/tree/main/test/fluent-pipeline).
+
 [![Build](https://github.com/Netcracker/qubership-fluent-pipeline-tests/actions/workflows/build.yaml/badge.svg?style=flat-square)](https://github.com/Netcracker/qubership-fluent-pipeline-tests/actions/workflows/build.yaml)
 [![Docker](https://img.shields.io/badge/docker-ghcr.io-blue?style=flat-square)](https://github.com/Netcracker/qubership-fluent-pipeline-tests/pkgs/container/qubership-fluent-pipeline-tests)
 [![Release](https://img.shields.io/github/v/release/Netcracker/qubership-fluent-pipeline-tests?style=flat-square)](https://github.com/Netcracker/qubership-fluent-pipeline-tests/releases)
