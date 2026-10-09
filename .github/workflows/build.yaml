@@ -52,11 +52,11 @@ jobs:
 
         if [[ "${GITHUB_EVENT_NAME}" != 'pull_request' ]]; then
           restricted=$(python3 -c "
-          import yaml, os
-          with open('.github/config/build-config.yaml') as f:
-              config = yaml.safe_load(f)
-          actors = config.get('restricted-actors', [])
-          print('true' if os.environ['ACTOR'] in actors else 'false')
+        import yaml, os
+        with open('.github/config/build-config.yaml') as f:
+            config = yaml.safe_load(f)
+        actors = config.get('restricted-actors', [])
+        print('true' if os.environ['ACTOR'] in actors else 'false')
           ")
           echo 'build=true' >> "${GITHUB_OUTPUT}"
           if [[ "${restricted}" == 'true' ]]; then
